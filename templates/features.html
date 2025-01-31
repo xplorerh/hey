@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+{% block body %}
+<!-- Full Screen Features Overview Section -->
+<section class="features py-5 bg-light min-vh-100 d-flex align-items-center">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-5">Explore Our Features</h2>
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <h3 class="fw-bold">Smart Farming Technology</h3>
+                <p class="text-muted">
+                    Agri E-State incorporates state-of-the-art IoT sensors and AI-powered analytics to monitor soil health, plant growth, and environmental factors. This ensures precision agriculture, optimizing resources and maximizing yield. The system integrates real-time data collection with predictive analytics, enabling farmers to make informed decisions about irrigation, fertilization, and pest management. With remote monitoring and automated processes, Agri E-State reduces manual labor and operational costs. Additionally, the platform provides detailed insights through user-friendly dashboards, ensuring transparency and ease of use. By fostering sustainable practices, it supports environmental conservation while boosting productivity.
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <img src="{{ url_for('static', filename='smart_farming.png') }}" alt="Smart Farming" class="img-fluid shadow rounded" style="height: 20em;">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Full Screen Specialized Units Section -->
+<section class="units py-5 min-vh-100 d-flex align-items-center">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-5">Specialized Units for Efficient Farming</h2>
+        <div class="row g-4">
+            <!-- Example of Specialized Unit Cards -->
+            <div class="col-md-4">
+                <div class="card shadow border-light">
+                    <img src="{{ url_for('static', filename='planting_unit.png') }}" alt="Planting Unit" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Planting Unit</h5>
+                        <p class="card-text">Automated systems designed to ensure efficient seed planting, optimizing crop growth and minimizing waste.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow border-light">
+                    <img src="{{ url_for('static', filename='seeding_unit.jpg') }}" alt="Seeding Unit" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Seeding Unit</h5>
+                        <p class="card-text">Robotic seeding technology ensuring precise placement and optimal conditions for plant germination.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow border-light">
+                    <img src="{{ url_for('static', filename='irrigation_unit.jpg') }}" alt="Irrigation Unit" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Irrigation Control</h5>
+                        <p class="card-text">IoT-based systems for real-time irrigation control, optimizing water usage for crops and reducing waste.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Full Screen Rover Section -->
+<section class="rover-details py-5 bg-dark text-light min-vh-100 d-flex align-items-center">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-5">MURPH - The Agriculture Rover</h2>
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4">
+                <img src="{{ url_for('static', filename='murph.png') }}" alt="MURPH Rover" class="img-fluid shadow rounded">
+            </div>
+            <div class="col-lg-6">
+                <ul class="list-group">
+                    <li class="list-group-item bg-dark text-light">
+                        <i class="bi bi-thermometer-half text-success me-2"></i> Soil health analysis: Monitors soil quality for better crop health.
+                    </li>
+                    <li class="list-group-item bg-dark text-light">
+                        <i class="bi bi-droplet text-success me-2"></i> pH and NPK measurement: Ensures optimal soil conditions for crop growth.
+                    </li>
+                    <li class="list-group-item bg-dark text-light">
+                        <i class="bi bi-lightning-fill text-success me-2"></i> IoT-based irrigation control: Automates irrigation based on real-time data.
+                    </li>
+                    <li class="list-group-item bg-dark text-light">
+                        <i class="bi bi-camera-video-fill text-success me-2"></i> Real-time field monitoring: Provides live data and alerts for better decision-making.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock body %}

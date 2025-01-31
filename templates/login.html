@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+    
+  <div class="login-container ">
+    <!-- Login Header -->
+    <div class="login-header text-center mb-4">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="Agri E-State Logo" width="75" class="mb-3 rounded-circle">
+      <h2>Login to Agri E-State</h2>
+    </div>
+    
+    <!-- Login Form -->
+    <form action="{{ url_for('login') }}" method="POST">
+      <div class="form-group mb-3">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required>
+      </div>
+
+      <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-login">Login</button>
+      </div>
+
+      <div class="form-text text-center mt-3">
+        <a href="{{ url_for('forgot_password') }}" class="text-decoration-none">Forgot Password?</a>
+      </div>
+
+      <div class="form-text text-center mt-2">
+        Don't have an account? <a href="{{ url_for('register') }}" class="text-decoration-none">Register</a>
+      </div>
+    </form>
+  </div>
+
+
+{% endblock body %}

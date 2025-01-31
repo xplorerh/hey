@@ -1,0 +1,478 @@
+/* Global Styles */
+body {
+  height: 100%;
+  padding-top: 70px; 
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #1f1f1f;  /* Dark background color */
+  color: white; /* Default text color for contrast */
+}
+
+/* Product Card Styles */
+.pest-container {
+  min-height: calc(100vh - 100px);
+  padding-top: 70px;
+}
+
+.product-card {
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.product-card .card-img-container {
+  height: 250px;
+  overflow: hidden;
+}
+
+.product-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #28a745;
+}
+
+.rating {
+  color: #ffc107; /* Gold for stars */
+}
+
+.red {
+  color: red;
+}
+
+/* Footer Styling */
+footer ul li {
+  margin-bottom: 0.5rem;
+}
+
+footer .fs-4 {
+  transition: color 0.3s;
+}
+
+footer .fs-4:hover {
+  color: #ffc107; /* Highlight color on hover */
+}
+
+/* Modal Styles */
+.modal-content {
+  background-color: rgba(0, 0, 0, 0.8);  /* Translucent background */
+  color: white;  /* White text */
+}
+
+/* Login Container Styling */
+.grey
+{
+  background-color: grey;
+}
+.login-container {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease; /* Hover effect for the container */
+}
+
+.login-container:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow on hover */
+}
+
+/* Login Header */
+.login-header {
+  margin-bottom: 30px;
+  text-align: center;  /* Center the logo and text */
+}
+
+.login-header img {
+  max-width: 50px;
+  margin-bottom: 10px;
+}
+
+.login-header h2 {
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Form Field Styles */
+.form-group label {
+  font-weight: 500;
+  color: #555;
+}
+
+.form-group input {
+  font-size: 1rem;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;  /* Transition effect */
+}
+
+.form-group input:focus {
+  border-color: #66cc66;
+  outline: none;
+}
+
+/* Login Button Styles */
+.btn-login {
+  background-color: #28a745;
+  color: white;
+  font-size: 1rem;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-login:hover {
+  background-color: #218838;
+}
+
+/* Link Styling */
+.form-text a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.form-text a:hover {
+  text-decoration: underline;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 576px) {
+  .login-container {
+    margin: 50px auto;
+    padding: 20px;
+  }
+
+  .login-header h2 {
+    font-size: 1.25rem;
+  }
+
+  .form-group input {
+    padding: 10px;
+  }
+}
+
+/* Enhanced Marketplace Styles */
+.sidebar-container {
+  position: sticky;
+  top: 90px;
+  height: calc(100vh - 90px);
+  overflow-y: auto;
+}
+
+.sidebar {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  margin: 1rem;
+}
+
+.btn-category {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-category:hover {
+  background: rgba(40, 167, 69, 0.2);
+  border-color: #28a745;
+  color: white;
+}
+
+.btn-rating {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-rating:hover {
+  background: rgba(40, 167, 69, 0.2);
+  border-color: #28a745;
+  color: white;
+}
+
+.product-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.product-image {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.1);
+}
+
+.product-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.product-card:hover .product-overlay {
+  opacity: 1;
+}
+
+.btn-quick-view, .btn-wishlist {
+  background: white;
+  color: #28a745;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.btn-quick-view:hover, .btn-wishlist:hover {
+  background: #28a745;
+  color: white;
+}
+
+.product-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1;
+}
+
+.product-category {
+  color: #28a745;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.product-title {
+  color: white;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.product-rating .stars {
+  color: #ffc107;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.rating-count {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+.current-price {
+  color: #28a745;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.original-price {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: line-through;
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.btn-add-cart {
+  background: #28a745;
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.btn-add-cart:hover {
+  background: #218838;
+  transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .sidebar-container {
+    position: relative;
+    top: 0;
+    height: auto;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .product-card {
+    margin: 0 0.5rem;
+  }
+  
+  .products-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+/* Sidebar Styles */
+.sidebar-container {
+  position: sticky;
+  top: 90px;
+  height: calc(100vh - 90px);
+  overflow-y: auto;
+}
+
+.sidebar {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  margin: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.filter-title {
+  color: #000;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.filter-section {
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.filter-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.category-checkbox, .rating-checkbox, .type-checkbox {
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  color: #000;
+  transition: all 0.3s ease;
+}
+
+.category-checkbox:hover, .rating-checkbox:hover, .type-checkbox:hover {
+  background: rgba(40, 167, 69, 0.1);
+  border-radius: 8px;
+}
+
+.count {
+  background: #e9ecef;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.btn-apply {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-apply:hover {
+  background: #218838;
+}
+
+/* Product Card Updates */
+.product-title {
+  color: #000;
+  font-weight: 600;
+}
+
+.rating-count {
+  color: #000;
+}
+
+/* Form Controls */
+.input-group-text {
+  background: #f8f9fa;
+  border-color: #ced4da;
+}
+
+.form-control {
+  border-color: #ced4da;
+}
+
+.form-control:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .sidebar-container {
+    position: relative;
+    top: 0;
+    height: auto;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .filter-section {
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .filter-title {
+    font-size: 1rem;
+  }
+}

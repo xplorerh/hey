@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Agri E-State is an innovative platform for sustainable farming, combining IoT, AI, and robotics for smarter agriculture.">
+  <meta name="keywords" content="Agri E-State, smart farming, sustainable agriculture, IoT, AI, robotics, technology for farming">
+  <meta name="author" content="Team 0D">
+
+  <!-- Open Graph Meta Tags for Social Media Sharing -->
+  <meta property="og:title" content="Agri E-State">
+  <meta property="og:description" content="Empowering farmers through cutting-edge technology for smarter, more sustainable farming.">
+  <meta property="og:image" content="{{ url_for('static', filename='logo.png') }}">
+  <meta property="og:url" content="{{ url_for('Home', _external=True) }}">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:title" content="Agri E-State">
+  <meta name="twitter:description" content="Innovative platform combining AI, IoT, and robotics for sustainable farming.">
+  <meta name="twitter:image" content="{{ url_for('static', filename='logo.png') }}">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <title>
+    {% block title %}
+      {{title}} - Agri E-State
+    {% endblock title %}
+  </title>
+
+  <!-- External CSS and Bootstrap -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success shadow-sm fixed-top" role="navigation" style="height: 70px;">
+    <div class="container">
+      <!-- Logo and Brand Name -->
+      <a class="navbar-brand d-flex align-items-center" href="{{ url_for('Home') }}">
+        <img src="{{ url_for('static', filename='logo.png') }}" width="35" height="35" class="me-2 rounded-circle" alt="Agri E-State Logo">
+        <strong>Agri E-State</strong>
+      </a>
+
+      <!-- Mobile Hamburger Menu -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navbar Links -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link {% if request.endpoint == 'Home' %}active{% endif %}" href="{{ url_for('Home') }}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.endpoint == 'features' %}active{% endif %}" href="{{ url_for('features') }}">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.endpoint == 'marketplace' %}active{% endif %}" href="{{ url_for('marketplace') }}">Marketplace</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.endpoint == 'research_data' %}active{% endif %}" href="{{ url_for('research_data') }}">Research Data</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.endpoint == 'student_zone' %}active{% endif %}" href="{{ url_for('student_zone') }}">Student Zone</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.endpoint == 'contact' %}active{% endif %}" href="{{ url_for('contact') }}">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.endpoint == 'pest' %}active{% endif %}" href="{{ url_for('pest') }}">Pest Portal</a>
+          </li>
+        </ul>
+
+        <!-- Login and Register Buttons (Spacing Added) -->
+        <ul class="navbar-nav signup">
+          <li class="nav-item">
+            <a class="btn btn-outline-light btn-sm ms-2" href="{{ url_for('login') }}" >Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-warning btn-sm ms-2" href="{{ url_for('register') }}" aria-label="Register">Register</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Login Modal -->
+ 
+  <!-- Content Block -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Login to Agri E-State</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="{{ url_for('login') }}" method="POST">
+          <!-- Email -->
+          <div class="mb-3">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+          </div>
+
+          <!-- Password -->
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+          </div>
+
+          <!-- Login Button -->
+          <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-success btn-block">Login</button>
+          </div>
+
+          <div class="mt-3 text-center">
+            <a href="{{ url_for('forgot_password') }}" class="text-decoration-none">Forgot Password?</a>
+          </div>
+        </form>
+        <div class="mt-3 text-center">
+          <p>Don't have an account? <a href="{{ url_for('register') }}" class="text-decoration-none">Register</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+  {% block body %}
+  {% endblock body %}
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light py-5">
+    <div class="container">
+      <div class="row">
+        <!-- About Section -->
+        <div class="col-md-4">
+          <h5 class="text-uppercase fw-bold mb-3">About Agri E-State</h5>
+          <p>Agri E-State bridges the gap between modern technology and traditional farming. We empower farmers, researchers, and consumers with innovative solutions for a sustainable future.</p>
+        </div>
+
+        <!-- Links Section -->
+        <div class="col-md-4">
+          <h5 class="text-uppercase fw-bold mb-3">Quick Links</h5>
+          <div class="row">
+            <div class="col-6">
+              <ul class="list-unstyled">
+                <li><a href="{{ url_for('Home') }}" class="text-light text-decoration-none">Home</a></li>
+                <li><a href="{{ url_for('features') }}" class="text-light text-decoration-none">Features</a></li>
+                <li><a href="{{ url_for('marketplace') }}" class="text-light text-decoration-none">Marketplace</a></li>
+              </ul>
+            </div>
+            <div class="col-6">
+              <ul class="list-unstyled">
+                <li><a href="{{ url_for('research_data') }}" class="text-light text-decoration-none">Research Data</a></li>
+                <li><a href="{{ url_for('student_zone') }}" class="text-light text-decoration-none">Student Zone</a></li>
+                <li><a href="{{ url_for('contact') }}" class="text-light text-decoration-none">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="col-md-4">
+          <h5 class="text-uppercase fw-bold mb-3">Contact Us</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="bi bi-geo-alt-fill me-2"></i>123 Green Valley, Dharan</li>
+            <li class="mb-2"><i class="bi bi-envelope-fill me-2"></i>contact@agri-estate.com</li>
+            <li class="mb-2"><i class="bi bi-telephone-fill me-2"></i>+977 123-456-7890</li>
+          </ul>
+          <!-- Social Media -->
+          <div class="d-flex mt-3">
+            <a href="#" class="text-light me-3" aria-label="Facebook"><i class="bi bi-facebook fs-4"></i></a>
+            <a href="#" class="text-light me-3" aria-label="Twitter"><i class="bi bi-twitter fs-4"></i></a>
+            <a href="#" class="text-light me-3" aria-label="Instagram"><i class="bi bi-instagram fs-4"></i></a>
+            <a href="#" class="text-light" aria-label="LinkedIn"><i class="bi bi-linkedin fs-4"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="bg-light">
+      <div class="text-center small mt-4">
+        &copy; 2025 Agri E-State. All Rights Reserved. | Designed with ❤️ by Team 0D
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+{% extends "layout.html" %}
+{% block body %}
+<!-- Hero Section -->
+<section class="hero position-relative vh-100 d-flex align-items-center " style="background: url('{{ url_for('static', filename='herobg.jpg') }}') no-repeat center center/cover;">
+    <div class="container text-center text-light">
+        <h1 class="fw-bold display-3">Agri E-State</h1>
+        <p class="lead my-4">
+            Bridging Agriculture and Technology for a Sustainable Future
+        </p>
+        <a href="{{ url_for('features') }}" class="btn btn-primary btn-lg me-3">Explore Features</a>
+        <a href="{{ url_for('register') }}" class="btn btn-outline-light btn-lg">Join Us</a>
+    </div>
+</section>
+
+<!-- About Software Section -->
+<section class="about-software d-flex align-items-center" style="min-height: 100vh; background-color: #f8f9fa;">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h2 class="fw-bold">About Agri E-State</h2>
+                <p class="text-muted">
+                    Agri E-State is a cutting-edge platform designed to revolutionize the agricultural sector. Our comprehensive software empowers farmers with real-time insights, enhances research opportunities, and bridges the gap between producers and consumers.
+                </p>
+                <ul>
+                    <li>Real-time monitoring of crops and soil health.</li>
+                    <li>Smart IoT-enabled devices for precision farming.</li>
+                    <li>Direct farmer-to-consumer marketplace integration.</li>
+                </ul>
+                <a href="{{ url_for('features') }}" class="btn btn-success mt-3">Learn More</a>
+            </div>
+            <div class="col-lg-6 text-center">
+                <img src="{{ url_for('static', filename='about_software.png') }}" alt="Agri E-State Software" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Specialized Units Section -->
+<section class="special-units d-flex align-items-center" style="min-height: 100vh; background-color: #f1f1f1;">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-5">Specialized Units</h2>
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm h-100 text-center p-4">
+                    <i class="bi bi-seedling text-success fs-1 mb-3"></i>
+                    <h5 class="fw-bold">Planting Unit</h5>
+                    <p>Precision planting with automated systems for optimal growth.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm h-100 text-center p-4">
+                    <i class="bi bi-droplet-half text-success fs-1 mb-3"></i>
+                    <h5 class="fw-bold">Irrigation Control</h5>
+                    <p>Water management using advanced IoT devices.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm h-100 text-center p-4">
+                    <i class="bi bi-bar-chart-line text-success fs-1 mb-3"></i>
+                    <h5 class="fw-bold">Field Monitoring</h5>
+                    <p>Real-time data on crop and soil health for informed decisions.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Student Zone Section -->
+<section class="student-zone d-flex align-items-center" style="min-height: 100vh; background-color: #ffffff;">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 text-center">
+                <img src="{{ url_for('static', filename='student_zone.png') }}" alt="Student Zone" class="img-fluid">
+            </div>
+            <div class="col-lg-6">
+                <h2 class="fw-bold">Student Zone</h2>
+                <p class="text-muted">
+                    A dedicated space for students to access valuable resources, research data, and expert guidance to enhance their academic journey in the agricultural domain.
+                </p>
+                <ul>
+                    <li>Access to the latest research papers.</li>
+                    <li>Opportunities to collaborate with experts.</li>
+                    <li>Hands-on projects and case studies.</li>
+                </ul>
+                <a href="{{ url_for('student_zone') }}" class="btn btn-primary mt-3">Explore Student Zone</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Data & Research Development Section -->
+<section class="research-development d-flex align-items-center" style="min-height: 100vh; background-color: #343a40; color: white;">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h2 class="fw-bold">Data & Research Development</h2>
+                <p class="mb-4">
+                    Our platform collects and analyzes agricultural data to support research and development. Empowering scientists and researchers to innovate and create solutions for a sustainable future.
+                </p>
+                <ul>
+                    <li>Real-time data collection from fields.</li>
+                    <li>Detailed insights into crop health, soil, and climate.</li>
+                    <li>Tools for advanced agricultural research.</li>
+                </ul>
+                <a href="{{ url_for('research_data') }}" class="btn btn-success mt-3">Learn More</a>
+            </div>
+            <div class="col-lg-6 text-center">
+                <img src="{{ url_for('static', filename='research_data.png') }}" alt="Research and Development" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock body %}
