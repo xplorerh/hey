@@ -1,3 +1,17 @@
+*{
+  box-sizing: border-box;
+}
+
+:root{
+  --primary-clr: #68a12a;
+  --primary-light: #83c13b;
+  --primary-drk: #5e871b;
+  --text-clr: #182c2d;
+  --bright-clr: #e0ecf2;
+  --secondary-clr: #4b737d;
+}
+
+
 /* Global Styles */
 body {
   height: 100%;
