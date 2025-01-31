@@ -22,18 +22,24 @@
   <meta name="twitter:image" content="{{ url_for('static', filename='logo.png') }}">
   <meta name="twitter:card" content="summary_large_image">
 
+  <!-- Google font S -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <!-- Google font E -->
+
   <title>
-    {% block title %}
+    {% block title %} 
       {{title}} - Agri E-State
     {% endblock title %}
   </title>
 
-  <!-- External CSS and Bootstrap -->
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="/static/css/style2.css">
   <link rel="stylesheet" href="/static/css/style.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
 
   <!-- Favicon -->
   <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
@@ -41,12 +47,11 @@
 
 <body>
   <!-- Navigation Bar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-success shadow-sm fixed-top" role="navigation" style="height: 70px;">
+  <nav class="navbar navbar-expand-lg navBar" role="navigation">
     <div class="container">
       <!-- Logo and Brand Name -->
       <a class="navbar-brand d-flex align-items-center" href="{{ url_for('Home') }}">
-        <img src="{{ url_for('static', filename='logo.png') }}" width="35" height="35" class="me-2 rounded-circle" alt="Agri E-State Logo">
-        <strong>Agri E-State</strong>
+        <img src="{{ url_for('static', filename='argroLogo.png') }}"  alt="Agri E-State Logo">
       </a>
 
       <!-- Mobile Hamburger Menu -->
@@ -54,31 +59,34 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <!-- Navbar Links -->
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link {% if request.endpoint == 'Home' %}active{% endif %}" href="{{ url_for('Home') }}">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {% if request.endpoint == 'features' %}active{% endif %}" href="{{ url_for('features') }}">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {% if request.endpoint == 'marketplace' %}active{% endif %}" href="{{ url_for('marketplace') }}">Marketplace</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {% if request.endpoint == 'research_data' %}active{% endif %}" href="{{ url_for('research_data') }}">Research Data</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {% if request.endpoint == 'student_zone' %}active{% endif %}" href="{{ url_for('student_zone') }}">Student Zone</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {% if request.endpoint == 'contact' %}active{% endif %}" href="{{ url_for('contact') }}">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {% if request.endpoint == 'pest' %}active{% endif %}" href="{{ url_for('pest') }}">Pest Portal</a>
-          </li>
-
+        <!-- Navbar Links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link {% if request.endpoint == 'Home' %}active{% endif %}" href="{{ url_for('Home') }}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if request.endpoint == 'features' %}active{% endif %}" href="{{ url_for('features') }}">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if request.endpoint == 'marketplace' %}active{% endif %}" href="{{ url_for('marketplace') }}">Marketplace</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if request.endpoint == 'research_data' %}active{% endif %}" href="{{ url_for('research_data') }}">Research Data</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if request.endpoint == 'student_zone' %}active{% endif %}" href="{{ url_for('student_zone') }}">Student Zone</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if request.endpoint == 'contact' %}active{% endif %}" href="{{ url_for('contact') }}">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if request.endpoint == 'pest' %}active{% endif %}" href="{{ url_for('pest') }}">Pest Portal</a>
+            </li>
+          </ul>
+        </div>
+          <!-- Login and Register Buttons (Spacing Added) -->
+          <ul class="navbar-nav signup d-flex align-items-center ms-auto">
           <!-- Conditional Authentication Options -->
           {% if 'user_id' in session %}
             <!-- User Avatar Dropdown -->
@@ -100,8 +108,10 @@
               <a class="btn btn-warning btn-sm ms-2" href="{{ url_for('register') }}" aria-label="Register">Register</a>
             </li>
           {% endif %}
-        </ul>
-      </div>
+            <li class="nav-item ms-3">
+              <div id="google_translate_element"></div>
+            </li>
+          </ul>
     </div>
   </nav>
 
@@ -163,6 +173,19 @@
     </div>
   </footer>
 
+
+  <!-- Google Translate -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,ne',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+    }
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
