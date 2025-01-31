@@ -86,19 +86,20 @@
               <a class="nav-link {% if request.endpoint == 'pest' %}active{% endif %}" href="{{ url_for('pest') }}">Pest Portal</a>
             </li>
           </ul>
+                    <!-- Login and Register Buttons (Spacing Added) -->
+                    <ul class="navbar-nav signup d-flex align-items-lg-center ms-auto">
+                      <li class="nav-item">
+                        <a class="btn cta-btn ms-2" href="{{ url_for('login') }}" >Login</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="btn ms-2 register-btn" href="{{ url_for('register') }}" aria-label="Register">Register</a>
+                      </li>
+                      <li class="nav-item ms-3">
+                        <div id="google_translate_element"></div>
+                      </li>
+                    </ul>
         </div>
-          <!-- Login and Register Buttons (Spacing Added) -->
-          <ul class="navbar-nav signup d-flex align-items-center ms-auto">
-            <li class="nav-item">
-              <a class="btn cta-btn ms-2" href="{{ url_for('login') }}" >Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="btn ms-2 register-btn" href="{{ url_for('register') }}" aria-label="Register">Register</a>
-            </li>
-            <li class="nav-item ms-3">
-              <div id="google_translate_element"></div>
-            </li>
-          </ul>
+
     </div>
   </nav>
 

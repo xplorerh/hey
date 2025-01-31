@@ -39,6 +39,9 @@
   color: var(--primary-clr);
 }
 
+.txt-clr{
+  color: var(--text-clr);
+}
 /* Utility Css E */
 
 /* Global Styles */
@@ -574,14 +577,12 @@ footer .fs-4:hover {
 }
 
 
-<<<<<<< HEAD
 /* Google translate css S */
 
 
 
 /* Google translate css E */
 
-=======
 
 .forgot-password-container{
   max-width: 600px;
@@ -592,4 +593,3 @@ footer .fs-4:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease; /* Hover effect for the container */
 }
->>>>>>> e6171f79e6c1a67a57f65802dc698392fc309f89
