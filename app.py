@@ -174,7 +174,7 @@ def research_data():
 
 @app.route('/student_zone')
 def student_zone():
-    return render_template("frontpage.html",title="student_zone")
+    return render_template("student.html",title="student_zone")
 
 @app.route('/contact')
 def contact():
