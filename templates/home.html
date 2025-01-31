@@ -2,13 +2,12 @@
 {% block body %}
 <!-- Hero Section -->
 <section class="hero position-relative vh-100 d-flex align-items-center " style="background: url('{{ url_for('static', filename='herobg.jpg') }}') no-repeat center center/cover;">
-    <div id="google_translate_element" class="container text-center text-light">
-        <h1 class="fw-bold display-3">Agri E-State</h1>
+    <div class="container text-center text-light hero_card">
         <p class="lead my-4">
-            Bridging Agriculture and Technology for a Sustainable Future
+            <span>"Bridging</span> Agriculture and Technology for a Sustainable Future <span>"</span>
         </p>
-        <a href="{{ url_for('features') }}" class="btn btn-primary btn-lg me-3">Explore Features</a>
-        <a href="{{ url_for('register') }}" class="btn btn-outline-light btn-lg">Join Us</a>
+        <a href="{{ url_for('features') }}" class="btn cmn-btn me-3">Explore Features</a>
+        <a href="{{ url_for('register') }}" class="btn cta-btn">Join Us</a>
     </div>
 </section>
 
@@ -17,7 +16,7 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6">
-                <h2 class="fw-bold">About Agri E-State</h2>
+                <h2 class="fw-bold txt-primary">About Agri Estate</h2>
                 <p class="text-muted">
                     Agri E-State is a cutting-edge platform designed to revolutionize the agricultural sector. Our comprehensive software empowers farmers with real-time insights, enhances research opportunities, and bridges the gap between producers and consumers.
                 </p>
@@ -38,7 +37,7 @@
 <!-- Specialized Units Section -->
 <section class="special-units d-flex align-items-center" style="min-height: 100vh; background-color: #f1f1f1;">
     <div class="container">
-        <h2 class="text-center fw-bold mb-5">Specialized Units</h2>
+        <h2 class="text-center fw-bold mb-5 txt-primary">Specialized Units</h2>
         <div class="row g-4">
             <div class="col-lg-4">
                 <div class="card border-0 shadow-sm h-100 text-center p-4">
@@ -73,7 +72,7 @@
                 <img src="{{ url_for('static', filename='student_zone.png') }}" alt="Student Zone" class="img-fluid">
             </div>
             <div class="col-lg-6">
-                <h2 class="fw-bold">Student Zone</h2>
+                <h2 class="fw-bold txt-primary">Student Zone</h2>
                 <p class="text-muted">
                     A dedicated space for students to access valuable resources, research data, and expert guidance to enhance their academic journey in the agricultural domain.
                 </p>
