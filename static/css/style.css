@@ -1,5 +1,7 @@
 *{
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 :root{
@@ -7,26 +9,99 @@
   --primary-light: #83c13b;
   --primary-drk: #5e871b;
   --text-clr: #182c2d;
-  --bright-clr: #e0ecf2;
+  --bright-clr: #e1f3f0;
   --secondary-clr: #4b737d;
+
+  --primary-fnt: "Roboto", serif;
 }
 
+
+/* Utility Css S */
+
+.register-btn,.cta-btn{
+  background-color: var(--bright-clr);
+  color: var(--primary-clr);
+  border: 1px solid var(--primary-clr);
+  transition: all 0.3s;
+}
+
+.register-btn:hover,.cta-btn:hover{
+  background-color: var(--primary-clr);
+  color: var(--bright-clr);
+}
+
+.cmn-btn,.cmn-btn:hover{
+  background-color: var(--primary-clr);
+  color: var(--bright-clr);
+}
+
+.txt-primary{
+  color: var(--primary-clr);
+}
+
+/* Utility Css E */
 
 /* Global Styles */
 body {
-  height: 100%;
-  padding-top: 70px; 
   margin: 0;
   font-family: Arial, sans-serif;
+  font-family: var(--primary-fnt);
   background-color: #1f1f1f;  /* Dark background color */
   color: white; /* Default text color for contrast */
-  top: 0px !important;
 
 }
-/* for hiding the google branding */
-.goog-te-banner-frame {
-  display: none !important;
+
+/* Header part S */
+.navBar{
+  background-color: var(--bright-clr);
 }
+.navBar .navbar-brand img{
+  max-width: 250px;
+  width: 100%;
+}
+
+.navBar .nav-link{
+  color: var(--text-clr);
+}
+
+.navBar .nav-link.active{
+  color: var(--primary-clr);
+  font-weight: 500;
+}
+
+/* Header part E */
+
+/* Hero Section S */
+
+.hero .hero_card{
+  max-width: 700px;
+  border-radius: 4px;
+  padding: 4rem;
+  width: 100%;
+  background: rgba( 255, 255, 255, 0.25 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.hero h1{
+  font-weight: 600;
+  font-size: 4rem;
+  font-family: var(--primary-fnt);
+ color: var(--primary-clr); 
+}.hero p{
+  font-family: var(--primary-fnt);
+  color: var(--text-clr);
+  font-weight: 500;
+  font-size: 30px;
+}
+.hero p span{
+ color: var(--primary-clr); 
+ font-weight: 700;
+}
+/* Hero Section E */
+
 
 /* Product Card Styles */
 .pest-container {
@@ -103,6 +178,7 @@ footer .fs-4:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease; /* Hover effect for the container */
 }
+
 
 .login-container:hover {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow on hover */
@@ -496,3 +572,24 @@ footer .fs-4:hover {
     font-size: 1rem;
   }
 }
+
+
+<<<<<<< HEAD
+/* Google translate css S */
+
+
+
+/* Google translate css E */
+
+=======
+
+.forgot-password-container{
+  max-width: 600px;
+  margin: 100px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease; /* Hover effect for the container */
+}
+>>>>>>> e6171f79e6c1a67a57f65802dc698392fc309f89

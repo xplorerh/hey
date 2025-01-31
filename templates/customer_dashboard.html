@@ -1,0 +1,148 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="container-fluid py-4">
+  <div class="row">
+    <div class="col-lg-3 col-md-4">
+      <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+          User Dashboard
+        </div>
+        <div class="list-group list-group-flush">
+          <a href="#profile" class="list-group-item list-group-item-action active" data-bs-toggle="tab">
+            Profile
+          </a>
+          <a href="#orders" class="list-group-item list-group-item-action" data-bs-toggle="tab">
+            Orders
+          </a>
+          <a href="#wishlist" class="list-group-item list-group-item-action" data-bs-toggle="tab">
+            Wishlist
+          </a>
+          <a href="#settings" class="list-group-item list-group-item-action" data-bs-toggle="tab">
+            Settings
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-9 col-md-8">
+      <div class="tab-content">
+        <!-- Profile Tab -->
+        <div class="tab-pane fade show active" id="profile">
+          <div class="card">
+            <div class="card-header">Profile Information</div>
+            <div class="card-body">
+              <h5 class="card-title">Welcome, {{ user.username }}</h5>
+              <p><strong>Email:</strong> {{ user.email }}</p>
+              <p><strong>Farm Name:</strong> {{ user.farm_name or 'Not Set' }}</p>
+              <p><strong>Location:</strong> {{ user.location or 'Not Set' }}</p>
+              <p><strong>Contact Number:</strong> {{ user.contact_number or 'Not Set' }}</p>
+              <p><strong>Profile Picture:</strong> 
+                <img src="{{ url_for('static', filename='uploads/' + user.profile_pic if user.profile_pic else 'default_profile_pic.jpg') }}" 
+                     class="img-fluid rounded-circle" width="100" alt="Profile Picture">
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Orders Tab -->
+        <div class="tab-pane fade" id="orders">
+          <div class="card">
+            <div class="card-header">Your Orders</div>
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Total Amount</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for order in orders %}
+                  <tr>
+                    <td>{{ order.id }}</td>
+                    <td>${{ order.total_amount }}</td>
+                    <td>{{ order.status }}</td>
+                    <td>{{ order.order_date.strftime('%Y-%m-%d') }}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wishlist Tab -->
+        <div class="tab-pane fade" id="wishlist">
+          <div class="card">
+            <div class="card-header">Your Wishlist</div>
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>In Stock</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for item in wishlist %}
+                  <tr>
+                    <td>{{ item.product.name }}</td>
+                    <td>${{ item.product.price }}</td>
+                    <td>
+                      <span class="badge {{ 'bg-success' if item.product.in_stock else 'bg-danger' }}">
+                        {{ 'Yes' if item.product.in_stock else 'No' }}
+                      </span>
+                    </td>
+                    <td>
+                      <div class="btn-group">
+                        <button class="btn btn-sm btn-success">Add to Cart</button>
+                        <button class="btn btn-sm btn-danger">Remove</button>
+                      </div>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Settings Tab -->
+      <!-- Settings Tab -->
+<div class="tab-pane fade" id="settings">
+    <div class="card">
+      <div class="card-header">Account Settings</div>
+      <div class="card-body">
+        <form action="{{ url_for('update_settings') }}" method="POST" enctype="multipart/form-data">
+          <div class="mb-3">
+            <label for="farm_name" class="form-label">Farm Name</label>
+            <input type="text" class="form-control" id="farm_name" name="farm_name" value="{{ user.farm_name }}">
+          </div>
+          <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input type="text" class="form-control" id="location" name="location" value="{{ user.location }}">
+          </div>
+          <div class="mb-3">
+            <label for="contact_number" class="form-label">Contact Number</label>
+            <input type="text" class="form-control" id="contact_number" name="contact_number" value="{{ user.contact_number }}">
+          </div>
+          
+          <!-- Profile Picture Upload -->
+          <div class="mb-3">
+            <label for="profile_pic" class="form-label">Profile Picture</label>
+            <input type="file" class="form-control" id="profile_pic" name="profile_pic">
+            <small class="form-text text-muted">Upload a JPG, PNG, or JPEG file.</small>
+          </div>
+          
+          <button type="submit" class="btn btn-primary">Update Settings</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+{% endblock body %}

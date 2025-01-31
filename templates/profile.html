@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="container py-4">
+  <div class="card">
+    <div class="card-header">Profile Information</div>
+    <div class="card-body">
+      <h5 class="card-title">Welcome, {{ user.username }}</h5>
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      <p><strong>Farm Name:</strong> {{ user.farm_name or 'Not Set' }}</p>
+      <p><strong>Location:</strong> {{ user.location or 'Not Set' }}</p>
+      <p><strong>Contact Number:</strong> {{ user.contact_number or 'Not Set' }}</p>
+
+      <!-- Display Profile Picture -->
+      <p><strong>Profile Picture:</strong></p>
+      {% if user.profile_pic %}
+        <img src="{{ url_for('static', filename='uploads/' + user.profile_pic) }}" 
+             class="img-fluid rounded-circle" width="100" alt="Profile Picture">
+      {% else %}
+        <p>No profile picture uploaded.</p>
+      {% endif %}
+      
+      <a href="{{ url_for('settings') }}" class="btn btn-primary mt-3">Edit Profile</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
