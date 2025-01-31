@@ -1,20 +1,16 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-
-    
-  <div class="login-container ">
-    <!-- Login Header -->
+  <div class="login-container">
     <div class="login-header text-center mb-4">
       <img src="{{ url_for('static', filename='logo.png') }}" alt="Agri E-State Logo" width="75" class="mb-3 rounded-circle">
       <h2>Login to Agri E-State</h2>
     </div>
     
-    <!-- Login Form -->
     <form action="{{ url_for('login') }}" method="POST">
       <div class="form-group mb-3">
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" class="form-control" placeholder="Enter your username" required>
       </div>
 
       <div class="form-group mb-3">
@@ -22,9 +18,29 @@
         <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required>
       </div>
 
+      <div class="form-group mb-3">
+        <label for="user_type">User Type</label>
+        <select id="user_type" name="user_type" class="form-control" required>
+          <option value="">Select User Type</option>
+          <option value="farmer">Farmer</option>
+          <option value="customer">Customer</option>
+          <option value="admin">Admin</option>
+        </select>
+      </div>
+
       <div class="d-grid gap-2">
         <button type="submit" class="btn btn-login">Login</button>
       </div>
+
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <div class="alert alert-danger mt-3">
+            {% for message in messages %}
+              {{ message }}
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
 
       <div class="form-text text-center mt-3">
         <a href="{{ url_for('forgot_password') }}" class="text-decoration-none">Forgot Password?</a>
@@ -35,6 +51,4 @@
       </div>
     </form>
   </div>
-
-
 {% endblock body %}
