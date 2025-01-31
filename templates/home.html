@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block body %}
 <!-- Hero Section -->
-<section class="hero position-relative vh-100 d-flex align-items-center " style="background: url('{{ url_for('static', filename='herobg.jpg') }}') no-repeat center center/cover;">
+<section class="hero position-relative d-flex align-items-center pad-block-sec" style="background: url('{{ url_for('static', filename='herobg.jpg') }}') no-repeat center center/cover;">
     <div class="container text-center text-light hero_card">
         <p class="lead my-4">
             <span>"Bridging</span> Agriculture and Technology for a Sustainable Future <span>"</span>
@@ -12,22 +12,22 @@
 </section>
 
 <!-- About Software Section -->
-<section class="about-software d-flex align-items-center" style="min-height: 100vh; background-color: #f8f9fa;">
+<section class="about-software d-flex align-items-center pad-block-sec" style="">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-6">
-                <h2 class="fw-bold txt-primary">About Agri Estate</h2>
-                <p class="text-muted">
+            <div class="col-12 col-md-6 mx-auto">
+                <h2 class="fw-bold txt-primary mb-4">About Us</h2>
+                <p class="txt-clr">
                     Agri E-State is a cutting-edge platform designed to revolutionize the agricultural sector. Our comprehensive software empowers farmers with real-time insights, enhances research opportunities, and bridges the gap between producers and consumers.
                 </p>
-                <ul>
-                    <li>Real-time monitoring of crops and soil health.</li>
-                    <li>Smart IoT-enabled devices for precision farming.</li>
-                    <li>Direct farmer-to-consumer marketplace integration.</li>
+                <ul class="list-unstyled">
+                    <li class="txt-clr"><span class="txt-primary">*</span> Real-time monitoring of crops and soil health. <span class="txt-primary">*</span></li>
+                    <li class="txt-clr"><span class="txt-primary">*</span> Smart IoT-enabled devices for precision farming. <span class="txt-primary">*</span></li>
+                    <li class="txt-clr"><span class="txt-primary">*</span> Direct farmer-to-consumer marketplace integration. <span class="txt-primary">*</span></li>
                 </ul>
-                <a href="{{ url_for('features') }}" class="btn btn-success mt-3">Learn More</a>
+                <a href="{{ url_for('features') }}" class="btn mt-3 cmn-btn d-block mt-4" style="max-width: 150px;" >Learn More</a>
             </div>
-            <div class="col-lg-6 text-center">
+            <div class="col-lg-4 text-center">
                 <img src="{{ url_for('static', filename='about_software.png') }}" alt="Agri E-State Software" class="img-fluid">
             </div>
         </div>
@@ -35,7 +35,7 @@
 </section>
 
 <!-- Specialized Units Section -->
-<section class="special-units d-flex align-items-center" style="min-height: 100vh; background-color: #f1f1f1;">
+<!-- <section class="special-units d-flex align-items-center bg-clr" style="min-height: 100vh;">
     <div class="container">
         <h2 class="text-center fw-bold mb-5 txt-primary">Specialized Units</h2>
         <div class="row g-4">
@@ -62,10 +62,54 @@
             </div>
         </div>
     </div>
+</section> -->
+
+<section class="special-units d-flex align-items-center bg-clr" style="min-height: 100vh;">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-5 txt-primary">Our Features</h2>
+        <div class="row g-4 justify-content-center">
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm h-100 text-center p-4">
+                    <!-- <i class="bi bi-seedling "></i> -->
+                    <i class="bi bi-flower3 text-success fs-1 mb-3"></i>
+                    <h5 class="fw-bold">MarketPlace</h5>
+                    <p>Precision planting with automated systems for optimal growth.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm h-100 text-center p-4">
+                    <i class="bi bi-droplet-half text-success fs-1 mb-3"></i>
+                    <h5 class="fw-bold">Inventory Management System</h5>
+                    <p>Water management using advanced IoT devices.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm h-100 text-center p-4">
+                    <i class="bi bi-bar-chart-line text-success fs-1 mb-3"></i>
+                    <h5 class="fw-bold">Land lease</h5>
+                    <p>Real-time data on crop and soil health for informed decisions.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm h-100 text-center p-4">
+                    <i class="bi bi-bar-chart-line text-success fs-1 mb-3"></i>
+                    <h5 class="fw-bold">Smart Delivery</h5>
+                    <p>Real-time data on crop and soil health for informed decisions.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm h-100 text-center p-4">
+                    <i class="bi bi-bar-chart-line text-success fs-1 mb-3"></i>
+                    <h5 class="fw-bold">Pest Detection</h5>
+                    <p>Real-time data on crop and soil health for informed decisions.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- Student Zone Section -->
-<section class="student-zone d-flex align-items-center" style="min-height: 100vh; background-color: #ffffff;">
+<section class="student-zone d-flex align-items-center" style="min-height: 100vh;">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6 text-center">
@@ -88,7 +132,7 @@
 </section>
 
 <!-- Data & Research Development Section -->
-<section class="research-development d-flex align-items-center" style="min-height: 100vh; background-color: #343a40; color: white;">
+<section class="research-development d-flex align-items-center txt-clr bg-clr" style="min-height: 100vh;">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6">

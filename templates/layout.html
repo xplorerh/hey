@@ -84,34 +84,35 @@
               <a class="nav-link {% if request.endpoint == 'pest' %}active{% endif %}" href="{{ url_for('pest') }}">Pest Portal</a>
             </li>
           </ul>
-        </div>
           <!-- Login and Register Buttons (Spacing Added) -->
           <ul class="navbar-nav signup d-flex align-items-center ms-auto">
-          <!-- Conditional Authentication Options -->
-          {% if 'user_id' in session %}
-            <!-- User Avatar Dropdown -->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="{{ url_for('static', filename='user-avatar.png') }}" width="35" height="35" class="rounded-circle">
-              </a>
-              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                <li><a class="dropdown-item" href="{{ url_for(session['user_type'] + '_dashboard') }}">My Dashboard</a></li>
-                <li><a class="dropdown-item" href="{{ url_for('logout') }}">Logout</a></li>
-              </ul>
-            </li>
-          {% else %}
-            <!-- Login and Register Buttons if Not Logged In -->
-            <li class="nav-item">
-              <a class="btn btn-outline-light btn-sm ms-2" href="{{ url_for('login') }}">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="btn btn-warning btn-sm ms-2" href="{{ url_for('register') }}" aria-label="Register">Register</a>
-            </li>
-          {% endif %}
-            <li class="nav-item ms-3">
-              <div id="google_translate_element"></div>
-            </li>
-          </ul>
+            <!-- Conditional Authentication Options -->
+            {% if 'user_id' in session %}
+              <!-- User Avatar Dropdown -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="{{ url_for('static', filename='user-avatar.png') }}" width="35" height="35" class="rounded-circle">
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                  <li><a class="dropdown-item" href="{{ url_for(session['user_type'] + '_dashboard') }}">My Dashboard</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('logout') }}">Logout</a></li>
+                </ul>
+              </li>
+            {% else %}
+              <!-- Login and Register Buttons if Not Logged In -->
+              <li class="nav-item">
+                <a class="btn ms-2 cta-btn" href="{{ url_for('login') }}">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn  ms-2 register-btn" href="{{ url_for('register') }}" aria-label="Register">Register</a>
+              </li>
+            {% endif %}
+              <li class="nav-item ms-3">
+                <div id="google_translate_element"></div>
+              </li>
+            </ul>
+        </div>
+
     </div>
   </nav>
 
@@ -124,7 +125,7 @@
       <div class="row">
         <!-- About Section -->
         <div class="col-md-4">
-          <h5 class="text-uppercase fw-bold mb-3">About Agri E-State</h5>
+          <h5 class="text-uppercase fw-bold mb-5">About Agri E-State</h5>
           <p>Agri E-State bridges the gap between modern technology and traditional farming. We empower farmers, researchers, and consumers with innovative solutions for a sustainable future.</p>
         </div>
 

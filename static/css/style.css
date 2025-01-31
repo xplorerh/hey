@@ -11,6 +11,7 @@
   --text-clr: #182c2d;
   --bright-clr: #e1f3f0;
   --secondary-clr: #4b737d;
+  --bg-clr: #f1f1f1;
 
   --primary-fnt: "Roboto", serif;
 }
@@ -35,10 +36,21 @@
   color: var(--bright-clr);
 }
 
+.bg-clr{
+  background-color: var(--bg-clr);
+}
+
 .txt-primary{
   color: var(--primary-clr);
 }
 
+.txt-clr{
+  color: var(--text-clr);
+}
+
+.pad-block-sec{
+  padding-block: 8rem;
+}
 /* Utility Css E */
 
 /* Global Styles */
@@ -46,7 +58,6 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   font-family: var(--primary-fnt);
-  background-color: #1f1f1f;  /* Dark background color */
   color: white; /* Default text color for contrast */
 
 }
@@ -102,6 +113,12 @@ body {
 }
 /* Hero Section E */
 
+/* About Section S */
+.about-software p,.about-software li {
+  font-family: var(--primary-fnt);
+
+}
+/* About Section E */
 
 /* Product Card Styles */
 .pest-container {
@@ -574,14 +591,12 @@ footer .fs-4:hover {
 }
 
 
-<<<<<<< HEAD
 /* Google translate css S */
 
 
 
 /* Google translate css E */
 
-=======
 
 .forgot-password-container{
   max-width: 600px;
@@ -592,4 +607,3 @@ footer .fs-4:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease; /* Hover effect for the container */
 }
->>>>>>> e6171f79e6c1a67a57f65802dc698392fc309f89
