@@ -2,6 +2,7 @@ from flask import Flask,render_template,redirect, flash, jsonify, request, url_f
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import LoginManager, login_required, current_user
 import os
 from pest_prediction import PestDetector
 from flask_migrate import Migrate
@@ -13,6 +14,9 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'your_very_secret_and_random_key_here'
 db = SQLAlchemy(app)
+
+migrate = Migrate(app, db)
+
 
 class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)  
@@ -48,12 +52,14 @@ class User(db.Model):
     location = db.Column(db.String(100), nullable=True)
     contact_number = db.Column(db.String(20), nullable=True)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    profile_pic = db.Column(db.String(255), default='default.jpg')  # Store image filename
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
 
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
+
 
 class FarmInventory(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -132,6 +138,19 @@ def upload_file():
 def serve_upload(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
+@app.route('/update_settings', methods=['GET', 'POST'])
+def update_settings():
+    if request.method == 'POST':
+        # Handle the form submission, for example:
+        farm_name = request.form['farm_name']
+        location = request.form['location']
+        contact_number = request.form['contact_number']
+
+        # Update user settings in your database here (not shown)
+        
+        # Redirect to the user profile after successful update
+        return redirect(url_for('profile'))  # Replace 'profile' with the name of the profile route
+    return render_template('update_settings.html')
 has_run_before = False
 
 @app.before_request
@@ -184,7 +203,6 @@ def login():
         flash('Invalid username or password')
     
     return render_template('login.html', title='Login')
-
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
@@ -192,33 +210,41 @@ def register():
         email = request.form['email']
         password = request.form['password']
         user_type = request.form['user_type']
-        
-        existing_user = User.query.filter(
-            (User.username == username) | (User.email == email)
-        ).first()
-        
-        if existing_user:
-            flash('Username or email already exists')
-            return redirect(url_for('register'))
-        
-        new_user = User(
-            username=username, 
-            email=email, 
-            user_type=user_type
-        )
-        new_user.set_password(password)
-        
-        if user_type == 'farmer':
-            new_user.farm_name = request.form.get('farm_name')
-            new_user.location = request.form.get('location')
-        
+
+        # Handle file upload
+        if 'profile_pic' in request.files:
+            file = request.files['profile_pic']
+            if file and allowed_file(file.filename):
+                filename = secure_filename(file.filename)
+                file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                file.save(file_path)
+            else:
+                filename = 'default.jpg'  # Default profile picture
+        else:
+            filename = 'default.jpg'
+
+        # Save user to database
+        new_user = User(username=username, email=email, password=password, user_type=user_type, profile_pic=filename)
         db.session.add(new_user)
         db.session.commit()
-        
-        flash('Registration successful')
+
+        flash("Account created successfully!", "success")
         return redirect(url_for('login'))
-    
-    return render_template('register.html', title='Register')
+
+    return render_template('register.html')
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = "login"
+
+# User loader function (modify as per your database)
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))  # Fetch user from database
+
+@app.route('/profile')
+@login_required  # Ensures only logged-in users can access profile
+def profile():
+    return render_template('profile.html', user=current_user)
 
 @app.route('/logout')
 def logout():

@@ -11,6 +11,7 @@
   --text-clr: #182c2d;
   --bright-clr: #e1f3f0;
   --secondary-clr: #4b737d;
+  --bg-clr: #f1f1f1;
 
   --primary-fnt: "Roboto", serif;
 }
@@ -35,12 +36,20 @@
   color: var(--bright-clr);
 }
 
+.bg-clr{
+  background-color: var(--bg-clr);
+}
+
 .txt-primary{
   color: var(--primary-clr);
 }
 
 .txt-clr{
   color: var(--text-clr);
+}
+
+.pad-block-sec{
+  padding-block: 8rem;
 }
 /* Utility Css E */
 
@@ -49,7 +58,6 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   font-family: var(--primary-fnt);
-  background-color: #1f1f1f;  /* Dark background color */
   color: white; /* Default text color for contrast */
 
 }
@@ -105,6 +113,12 @@ body {
 }
 /* Hero Section E */
 
+/* About Section S */
+.about-software p,.about-software li {
+  font-family: var(--primary-fnt);
+
+}
+/* About Section E */
 
 /* Product Card Styles */
 .pest-container {
