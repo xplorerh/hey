@@ -225,9 +225,9 @@ def logout():
     session.clear()
     return redirect(url_for('Home'))
 
-@app.route('/resetuser')
+@app.route('/forgot_password')
 def forgot_password():
-    return render_template("register.html",title="reset")
+    return render_template("forgot_password.html",title="reset")
 
 @app.route('/farmer/dashboard')
 @login_required(user_types=['farmer'])

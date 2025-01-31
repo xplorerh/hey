@@ -104,6 +104,7 @@ footer .fs-4:hover {
   transition: box-shadow 0.3s ease; /* Hover effect for the container */
 }
 
+
 .login-container:hover {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow on hover */
 }
@@ -495,4 +496,16 @@ footer .fs-4:hover {
   .filter-title {
     font-size: 1rem;
   }
+}
+
+
+
+.forgot-password-container{
+  max-width: 600px;
+  margin: 100px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease; /* Hover effect for the container */
 }
