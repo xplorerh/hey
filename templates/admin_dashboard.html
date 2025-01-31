@@ -1,0 +1,174 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="container-fluid py-4">
+  <div class="row">
+    <div class="col-lg-3 col-md-4">
+      <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+          Admin Dashboard
+        </div>
+        <div class="list-group list-group-flush">
+          <a href="#users" class="list-group-item list-group-item-action active" data-bs-toggle="tab">
+            Registered Users
+          </a>
+          <a href="#farmers" class="list-group-item list-group-item-action" data-bs-toggle="tab">
+            Farmers
+          </a>
+          <a href="#products" class="list-group-item list-group-item-action" data-bs-toggle="tab">
+            Marketplace Products
+          </a>
+          <a href="#pest-reports" class="list-group-item list-group-item-action" data-bs-toggle="tab">
+            Pest Detection Reports
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-9 col-md-8">
+      <div class="tab-content">
+        <!-- Registered Users Tab -->
+        <div class="tab-pane fade show active" id="users">
+          <div class="card">
+            <div class="card-header">All Registered Users</div>
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>User Type</th>
+                    <th>Registered Date</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for user in users %}
+                  <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.user_type }}</td>
+                    <td>{{ user.created_at.strftime('%Y-%m-%d') }}</td>
+                    <td>
+                      <div class="btn-group">
+                        <button class="btn btn-sm btn-info">View</button>
+                        <button class="btn btn-sm btn-danger">Delete</button>
+                      </div>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Farmers Tab -->
+        <div class="tab-pane fade" id="farmers">
+          <div class="card">
+            <div class="card-header">Farmer Details</div>
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Farm Name</th>
+                    <th>Location</th>
+                    <th>Total Crops</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for farmer in farmers %}
+                  <tr>
+                    <td>{{ farmer.farm_name or 'N/A' }}</td>
+                    <td>{{ farmer.location or 'N/A' }}</td>
+                    <td>{{ farmer.inventories|length }}</td>
+                    <td>
+                      <div class="btn-group">
+                        <button class="btn btn-sm btn-primary">View Inventory</button>
+                      </div>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Marketplace Products Tab -->
+        <div class="tab-pane fade" id="products">
+          <div class="card">
+            <div class="card-header">Marketplace Products</div>
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>In Stock</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for product in products %}
+                  <tr>
+                    <td>{{ product.name }}</td>
+                    <td>${{ product.price }}</td>
+                    <td>
+                      <span class="badge {{ 'bg-success' if product.in_stock else 'bg-danger' }}">
+                        {{ 'Yes' if product.in_stock else 'No' }}
+                      </span>
+                    </td>
+                    <td>
+                      <div class="btn-group">
+                        <button class="btn btn-sm btn-warning">Edit</button>
+                        <button class="btn btn-sm btn-danger">Remove</button>
+                      </div>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pest Detection Reports Tab -->
+        <div class="tab-pane fade" id="pest-reports">
+          <div class="card">
+            <div class="card-header">Pest Detection Reports</div>
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Pest Type</th>
+                    <th>Confidence</th>
+                    <th>Timestamp</th>
+                    <th>Image</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for report in pest_reports %}
+                  <tr>
+                    <td>{{ report.pest_type }}</td>
+                    <td>{{ report.confidence_score }}%</td>
+                    <td>{{ report.timestamp.strftime('%Y-%m-%d %H:%M') }}</td>
+                    <td>
+                      <img src="{{ url_for('static', filename=report.image_path) }}" 
+                           class="img-thumbnail" style="max-width: 100px;">
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock body %}
