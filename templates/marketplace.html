@@ -1,7 +1,8 @@
 {% extends 'layout.html' %}
 {% block body %}
-<div class="container-fluid">
-  <div class="row">
+<h3 class="txt-primary bg-clr py-3 mb-3" style="text-align: center; margin-top: 2rem; ">MarketPlace</h3>
+<div class="container-fluid py-5">
+  <div class="row container mx-auto">
     <!-- Sidebar -->
     <div class="col-lg-3 col-md-4 sidebar-container">
       <div class="sidebar p-4">
@@ -35,7 +36,7 @@
               <input type="number" class="form-control" placeholder="Max">
             </div>
           </div>
-          <button class="btn btn-apply w-100">Apply Filter</button>
+          <button class="btn cmn-btn w-100">Apply Filter</button>
         </div>
 
         <div class="filter-section mb-4">
@@ -105,7 +106,7 @@
             </div>
             <div class="product-details p-3">
               <div class="product-category">{{ product.category }}</div>
-              <h5 class="product-title">{{ product.name }}</h5>
+              <h5 class="product-title txt-primary">{{ product.name }}</h5>
               <div class="product-rating mb-2">
                 {% if product.rating %}
                 <div class="stars">
@@ -132,7 +133,9 @@
                   {% endif %}
                 </div>
                 <button class="btn btn-add-cart">
-                  <i class="fas fa-shopping-cart"></i>
+                
+                  <i class="fas fa-shopping-cart" style="color: #5e871b;"></i>
+                  </a>
                 </button>
               </div>
             </div>

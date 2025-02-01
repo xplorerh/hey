@@ -11,6 +11,7 @@ from datetime import datetime
 import pickle
 import pandas as pd
 from haversine import haversine, Unit
+import csv
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
@@ -78,6 +79,7 @@ class Order(db.Model):
     total_amount = db.Column(db.Float, nullable=False)
     order_date = db.Column(db.DateTime, default=datetime.utcnow)
     status = db.Column(db.String(20), default='pending')
+
 UPLOAD_FOLDER = 'static/uploads'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg','csv'}
 
@@ -85,6 +87,53 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+def get_pest_remedy(pest_type):
+    """
+    Lookup remedy for a specific pest type from the CSV file
+    """
+    remedy_file_path = 'pest_remedy.csv'
+    
+    try:
+        with open(remedy_file_path, 'r') as csvfile:
+            csv_reader = csv.DictReader(csvfile)
+            for row in csv_reader:
+                if row['pestname'].lower() == pest_type.lower():
+                    return row['remedy']
+    except Exception as e:
+        print(f"Error reading remedy CSV: {e}")
+    
+    return "No specific remedy found for this pest."
+
+@app.route('/crop_pest_selection')
+def crop_pest_selection():
+    crops = [
+        {
+            'name': 'Jute',
+            'image': 'static/images/jute-crop.jpg',
+            'description': 'Pest Detection for Jute Crops',
+            'active': True
+        },
+        {
+            'name': 'Rice',
+            'image': 'static/images/rice-crop.jpg',
+            'description': 'Coming Soon',
+            'active': False
+        },
+        {
+            'name': 'Wheat',
+            'image': 'static/images/wheat-crop.jpg',
+            'description': 'Coming Soon',
+            'active': False
+        },
+        {
+            'name': 'Maize',
+            'image': 'static/images/maize-crop.jpg',
+            'description': 'Coming Soon',
+            'active': False
+        }
+    ]
+    return render_template("crop_pest_selection.html", crops=crops)
 
 def login_required(user_types=None):
     def decorator(f):
@@ -121,6 +170,8 @@ def upload_file():
         detector = PestDetector()
         prediction = detector.predict(filepath)
 
+        remedy = get_pest_remedy(prediction['pest_type'])
+
         relative_filepath = os.path.join('uploads', filename)
         
         new_prediction = PestPrediction(
@@ -131,7 +182,7 @@ def upload_file():
         db.session.add(new_prediction)
         db.session.commit()
 
-        return render_template('pest.html', prediction=prediction, image_path=relative_filepath)
+        return render_template('pest.html', prediction=prediction, image_path=relative_filepath, remedy=remedy)
 
     return redirect(url_for('pest'))
 
@@ -209,8 +260,10 @@ def register():
     if request.method == 'POST':
         username = request.form['username']
         email = request.form['email']
-        password = request.form['password']
+        password = request.form['password']  # This is the raw password from the form
         user_type = request.form['user_type']
+        farm_name = request.form.get('farm_name', None)
+        location = request.form.get('location', None)
 
         # Handle file upload
         if 'profile_pic' in request.files:
@@ -224,8 +277,20 @@ def register():
         else:
             filename = 'default.jpg'
 
+        # Create user instance WITHOUT the password field
+        new_user = User(
+            username=username,
+            email=email,
+            user_type=user_type,
+            farm_name=farm_name,
+            location=location,
+            profile_pic=filename
+        )
+
+        # Hash and store the password
+        new_user.set_password(password)  # Securely hash password before storing
+
         # Save user to database
-        new_user = User(username=username, email=email, password=password, user_type=user_type, profile_pic=filename)
         db.session.add(new_user)
         db.session.commit()
 
@@ -233,6 +298,7 @@ def register():
         return redirect(url_for('login'))
 
     return render_template('register.html')
+
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = "login"

@@ -1,13 +1,14 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-  <div class="login-container">
-    <div class="login-header text-center mb-4">
-      <img src="{{ url_for('static', filename='logo.png') }}" alt="Agri E-State Logo" width="75" class="mb-3 rounded-circle">
-      <h2>Login to Agri E-State</h2>
+<div class="py-5">
+  <div class="login-container shadow-lg overflow-hidden" style="max-width: 450px;">
+    <div class="login-header bg_primary text-center mb-4 p-3">
+      <!-- <img src="{{ url_for('static', filename='argroLogo.png') }}" alt="Agri E-State Logo" width="100"> -->
+      <h4>Login</h4>
     </div>
     
-    <form action="{{ url_for('login') }}" method="POST">
+    <form action="{{ url_for('login') }}" class="p-3" method="POST">
       <div class="form-group mb-3">
         <label for="username">Username</label>
         <input type="text" id="username" name="username" class="form-control" placeholder="Enter your username" required>
@@ -29,7 +30,7 @@
       </div>
 
       <div class="d-grid gap-2">
-        <button type="submit" class="btn btn-login">Login</button>
+        <button type="submit" class="btn cmn-btn">Login</button>
       </div>
 
       {% with messages = get_flashed_messages() %}
@@ -43,12 +44,14 @@
       {% endwith %}
 
       <div class="form-text text-center mt-3">
-        <a href="{{ url_for('forgot_password') }}" class="text-decoration-none">Forgot Password?</a>
+        <a href="{{ url_for('forgot_password') }}" class="text-decoration-none txt-primary">Forgot Password?</a>
       </div>
 
       <div class="form-text text-center mt-2">
-        Don't have an account? <a href="{{ url_for('register') }}" class="text-decoration-none">Register</a>
+        Don't have an account? <a href="{{ url_for('register') }}" class="text-decoration-none txt-primary">Register</a>
       </div>
     </form>
   </div>
+</div>
+
 {% endblock body %}

@@ -3,13 +3,13 @@
 {% block body %}
 <div class="container py-5">
   <div class="row justify-content-center">
-    <div class="col-lg-6 col-md-8">
+    <div class="col-lg-6 col-md-8" style="max-width: 490px;">
       <div class="card shadow-lg border-0 rounded-lg">
-        <div class="card-header bg-gradient-primary text-center py-4">
-          <img src="{{ url_for('static', filename='logo.png') }}" alt="Agri E-State Logo" width="100" class="rounded-circle mb-3 shadow">
-          <h2 class="text-white mb-0">Create Your Account</h2>
+        <div class="card-header bg_primary text-center py-4">
+          <!-- <img src="{{ url_for('static', filename='argroLogo.png') }}" alt="Agri E-State Logo" width="100" > -->
+          <h4 class="text-white mb-0">Create Your Account</h4>
         </div>
-        <div class="card-body p-5">
+        <div class="card-body p-3 pt-5">
           <form action="{{ url_for('register') }}" method="POST" enctype="multipart/form-data">
             <div class="form-floating mb-3">
               <input type="text" class="form-control" id="username" name="username" placeholder="Choose username" required>
@@ -65,13 +65,13 @@
             {% endwith %}
 
             <div class="d-grid">
-              <button type="submit" class="btn btn-primary btn-lg rounded-pill shadow-sm">Register</button>
+              <button type="submit" class="btn register-btn ">Register</button>
             </div>
 
             <div class="text-center mt-3">
               <p class="small text-muted">
                 Already have an account? 
-                <a href="{{ url_for('login') }}" class="text-primary fw-bold text-decoration-none">Login</a>
+                <a href="{{ url_for('login') }}" class="txt-primary fw-bold text-decoration-none">Login</a>
               </p>
             </div>
           </form>

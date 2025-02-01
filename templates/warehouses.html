@@ -1,9 +1,9 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-<div class="container mt-5">
+<div class="container py-5">
     <div class="card">
-        <div class="card-header bg-primary text-white">
+        <div class="card-header bg_primary text-white">
             Warehouse Prediction
         </div>
         <div class="card-body">
@@ -12,7 +12,7 @@
                     <label for="inventoryFile" class="form-label">Upload Inventory CSV</label>
                     <input class="form-control" type="file" id="inventoryFile" name="inventory_file" accept=".csv" required>
                 </div>
-                <button type="submit" class="btn btn-primary">Predict Warehouses</button>
+                <button type="submit" class="btn cmn-btn">Predict Warehouses</button>
             </form>
 
             {% if warehouses %}

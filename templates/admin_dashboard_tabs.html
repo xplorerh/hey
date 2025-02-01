@@ -1,0 +1,281 @@
+<!-- Registered Users Tab -->
+<div class="tab-pane fade" id="users">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="card-title mb-0">All Registered Users</h5>
+        <button class="btn btn-sm btn-primary">Export Users</button>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Username</th>
+              <th>Email</th>
+              <th>User Type</th>
+              <th>Registered Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for user in users %}
+            <tr>
+              <td>{{ user.id }}</td>
+              <td>{{ user.username }}</td>
+              <td>{{ user.email }}</td>
+              <td>
+                <span class="badge bg-{{ 'primary' if user.user_type == 'farmer' else 'info' }}">
+                  {{ user.user_type }}
+                </span>
+              </td>
+              <td>{{ user.created_at.strftime('%Y-%m-%d') }}</td>
+              <td>
+                <div class="btn-group">
+                  <button class="btn btn-sm btn-info">View</button>
+                  <button class="btn btn-sm btn-danger">Delete</button>
+                </div>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Farmers Tab -->
+  <div class="tab-pane fade" id="farmers">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="card-title mb-0">Farmer Details</h5>
+        <button class="btn btn-sm btn-primary">Add Farmer</button>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Farm Name</th>
+              <th>Location</th>
+              <th>Contact</th>
+              <th>Total Crops</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for farmer in farmers %}
+            <tr>
+              <td>{{ farmer.farm_name or 'N/A' }}</td>
+              <td>{{ farmer.location or 'N/A' }}</td>
+              <td>{{ farmer.contact_number or 'N/A' }}</td>
+              <td>{{ farmer.inventories|length }}</td>
+              <td>
+                <span class="badge bg-success">Active</span>
+              </td>
+              <td>
+                <div class="btn-group">
+                  <button class="btn btn-sm btn-primary">View Inventory</button>
+                  <button class="btn btn-sm btn-warning">Edit</button>
+                </div>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Marketplace Products Tab -->
+  <div class="tab-pane fade" id="products">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="card-title mb-0">Marketplace Products</h5>
+        <button class="btn btn-sm btn-primary">Add Product</button>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Stock</th>
+              <th>Rating</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for product in products %}
+            <tr>
+              <td>{{ product.name }}</td>
+              <td>${{ "%.2f"|format(product.price) }}</td>
+              <td>{{ product.quantity if hasattr(product, 'quantity') else 'N/A' }}</td>
+              <td>{{ "%.1f"|format(product.rating) if product.rating else 'No ratings' }}</td>
+              <td>
+                <span class="badge {{ 'bg-success' if product.in_stock else 'bg-danger' }}">
+                  {{ 'In Stock' if product.in_stock else 'Out of Stock' }}
+                </span>
+              </td>
+              <td>
+                <div class="btn-group">
+                  <button class="btn btn-sm btn-warning">Edit</button>
+                  <button class="btn btn-sm btn-danger">Remove</button>
+                </div>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Warehouses Tab -->
+  <div class="tab-pane fade" id="warehouses">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="card-title mb-0">Warehouse Management</h5>
+        <button class="btn btn-sm btn-primary">Add Warehouse</button>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Warehouse ID</th>
+              <th>Location</th>
+              <th>Capacity</th>
+              <th>Current Usage</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% if warehouses %}
+              {% for warehouse in warehouses %}
+              <tr>
+                <td>{{ warehouse.id }}</td>
+                <td>{{ warehouse.location }}</td>
+                <td>{{ warehouse.capacity }}</td>
+                <td>{{ warehouse.current_usage }}</td>
+                <td>
+                  <span class="badge {{ 'bg-success' if warehouse.status == 'active' else 'bg-warning' }}">
+                    {{ warehouse.status }}
+                  </span>
+                </td>
+                <td>
+                  <div class="btn-group">
+                    <button class="btn btn-sm btn-info">View</button>
+                    <button class="btn btn-sm btn-warning">Edit</button>
+                  </div>
+                </td>
+              </tr>
+              {% endfor %}
+            {% else %}
+              <tr>
+                <td colspan="6" class="text-center">No warehouses found</td>
+              </tr>
+            {% endif %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Item Tracking Tab -->
+  <div class="tab-pane fade" id="item-tracking">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="card-title mb-0">Item Tracking System</h5>
+        <div>
+          <button class="btn btn-sm btn-secondary me-2">Scan Item</button>
+          <button class="btn btn-sm btn-primary">Add New Item</button>
+        </div>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Tracking ID</th>
+              <th>Item Name</th>
+              <th>Current Location</th>
+              <th>Last Updated</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% if tracked_items %}
+              {% for item in tracked_items %}
+              <tr>
+                <td>{{ item.tracking_id }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.current_location }}</td>
+                <td>{{ item.last_updated.strftime('%Y-%m-%d %H:%M') }}</td>
+                <td>
+                  <span class="badge {{ 'bg-success' if item.status == 'delivered' else 'bg-info' }}">
+                    {{ item.status }}
+                  </span>
+                </td>
+                <td>
+                  <div class="btn-group">
+                    <button class="btn btn-sm btn-info">Track</button>
+                    <button class="btn btn-sm btn-warning">Update</button>
+                  </div>
+                </td>
+              </tr>
+              {% endfor %}
+            {% else %}
+              <tr>
+                <td colspan="6" class="text-center">No items being tracked</td>
+              </tr>
+            {% endif %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Pest Detection Reports Tab -->
+  <div class="tab-pane fade" id="pest-reports">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="card-title mb-0">Pest Detection Reports</h5>
+        <button class="btn btn-sm btn-primary">Export Reports</button>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Pest Type</th>
+              <th>Location</th>
+              <th>Confidence</th>
+              <th>Status</th>
+              <th>Image</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for report in pest_reports %}
+            <tr>
+              <td>{{ report.timestamp.strftime('%Y-%m-%d %H:%M') }}</td>
+              <td>{{ report.pest_type }}</td>
+              <td>{{ report.location or 'N/A' }}</td>
+              <td>{{ "%.1f"|format(report.confidence_score) }}%</td>
+              <td>
+                <span class="badge {{ 'bg-danger' if report.confidence_score > 80 else 'bg-warning' }}">
+                  {{ 'High Risk' if report.confidence_score > 80 else 'Moderate Risk' }}
+                </span>
+              </td>
+              <td>
+                <img src="{{ url_for('static', filename=report.image_path) }}" 
+                     class="img-thumbnail" style="max-width: 100px;" 
+                     alt="Pest Image">
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

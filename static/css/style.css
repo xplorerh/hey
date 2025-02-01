@@ -1,10 +1,10 @@
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-:root{
+:root {
   --primary-clr: #68a12a;
   --primary-light: #83c13b;
   --primary-drk: #5e871b;
@@ -18,7 +18,7 @@
 
 
 /* Utility Css S */
-.step{
+.step {
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
@@ -32,38 +32,47 @@
   margin-inline: auto;
   margin-bottom: 1rem;
 }
-.register-btn,.cta-btn{
-  background-color: var(--bright-clr);
+
+.register-btn,
+.cta-btn {
+  /* background-color: var(--bright-clr); */
   color: var(--primary-clr);
   border: 1px solid var(--primary-clr);
   transition: all 0.3s;
 }
 
-.register-btn:hover,.cta-btn:hover{
+.register-btn:hover,
+.cta-btn:hover {
   background-color: var(--primary-clr);
   color: var(--bright-clr);
 }
 
-.cmn-btn,.cmn-btn:hover{
+.cmn-btn,
+.cmn-btn:hover {
   background-color: var(--primary-clr);
   color: var(--bright-clr);
 }
 
-.bg-clr{
+.bg-clr {
   background-color: var(--bg-clr);
 }
 
-.txt-primary{
+.bg_primary {
+  background-color: var(--primary-clr);
+}
+
+.txt-primary {
   color: var(--secondary-clr);
 }
 
-.txt-clr{
+.txt-clr {
   color: var(--text-clr);
 }
 
-.pad-block-sec{
+.pad-block-sec {
   padding-block: 8rem;
 }
+
 /* Utility Css E */
 
 /* Global Styles */
@@ -71,24 +80,26 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   font-family: var(--primary-fnt);
-  color: white; /* Default text color for contrast */
+  color: white;
+  /* Default text color for contrast */
 
 }
 
 /* Header part S */
-.navBar{
+.navBar {
   background-color: var(--bright-clr);
 }
-.navBar .navbar-brand img{
-  max-width: 250px;
+
+.navBar .navbar-brand img {
+  max-width: 200px;
   width: 100%;
 }
 
-.navBar .nav-link{
+.navBar .nav-link {
   color: var(--text-clr);
 }
 
-.navBar .nav-link.active{
+.navBar .nav-link.active {
   color: var(--primary-clr);
   font-weight: 500;
 }
@@ -97,35 +108,40 @@ body {
 
 /* Hero Section S */
 
-.hero .hero_card{
+.hero .hero_card {
   max-width: 700px;
   border-radius: 4px;
   padding: 4rem;
   width: 100%;
-  background: rgba( 255, 255, 255, 0.25 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 4px );
-  -webkit-backdrop-filter: blur( 13px );
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(13px);
   border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
-.hero p{
+
+.hero p {
   font-family: var(--primary-fnt);
   color: var(--text-clr);
   font-weight: 700;
   font-size: 30px;
 }
-.hero p span{
- color: var(--primary-clr); 
- font-weight: 700;
+
+.hero p span {
+  color: var(--primary-clr);
+  font-weight: 700;
 }
+
 /* Hero Section E */
 
 /* About Section S */
-.about-software p,.about-software li {
+.about-software p,
+.about-software li {
   font-family: var(--primary-fnt);
 
 }
+
 /* About Section E */
 
 /* Product Card Styles */
@@ -136,7 +152,7 @@ body {
 
 .product-card {
   border: 1px solid #dee2e6;
-  border-radius: 10px;
+  border-radius: 4PX;
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -163,7 +179,8 @@ body {
 }
 
 .rating {
-  color: #ffc107; /* Gold for stars */
+  color: #ffc107;
+  /* Gold for stars */
 }
 
 .red {
@@ -180,39 +197,45 @@ footer .fs-4 {
 }
 
 footer .fs-4:hover {
-  color: #ffc107; /* Highlight color on hover */
+  color: #ffc107;
+  /* Highlight color on hover */
 }
 
 /* Modal Styles */
 .modal-content {
-  background-color: rgba(0, 0, 0, 0.8);  /* Translucent background */
-  color: white;  /* White text */
+  background-color: rgba(0, 0, 0, 0.8);
+  /* Translucent background */
+  color: white;
+  /* White text */
 }
 
 /* Login Container Styling */
-.grey
-{
+.grey {
   background-color: grey;
 }
+
 .login-container {
-  max-width: 400px;
-  margin: 100px auto;
-  padding: 30px;
+  max-width: 600px;
+  margin-inline:  auto;
+  /* padding: 30px; */
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease; /* Hover effect for the container */
+  transition: box-shadow 0.3s ease;
+  /* Hover effect for the container */
 }
 
 
 .login-container:hover {
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  /* Slightly stronger shadow on hover */
 }
 
 /* Login Header */
 .login-header {
   margin-bottom: 30px;
-  text-align: center;  /* Center the logo and text */
+  text-align: center;
+  /* Center the logo and text */
 }
 
 .login-header img {
@@ -237,7 +260,8 @@ footer .fs-4:hover {
   padding: 12px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  transition: border-color 0.3s ease;  /* Transition effect */
+  transition: border-color 0.3s ease;
+  /* Transition effect */
 }
 
 .form-group input:focus {
@@ -246,29 +270,8 @@ footer .fs-4:hover {
 }
 
 /* Login Button Styles */
-.btn-login {
-  background-color: #28a745;
-  color: white;
-  font-size: 1rem;
-  padding: 12px;
-  border: none;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-}
-
-.btn-login:hover {
-  background-color: #218838;
-}
 
 /* Link Styling */
-.form-text a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-.form-text a:hover {
-  text-decoration: underline;
-}
 
 .text-center {
   text-align: center;
@@ -278,7 +281,7 @@ footer .fs-4:hover {
 @media (max-width: 576px) {
   .login-container {
     margin: 50px auto;
-    padding: 20px;
+    /* padding: 20px; */
   }
 
   .login-header h2 {
@@ -292,16 +295,16 @@ footer .fs-4:hover {
 
 /* Enhanced Marketplace Styles */
 .sidebar-container {
-  position: sticky;
-  top: 90px;
-  height: calc(100vh - 90px);
-  overflow-y: auto;
+  /* position: sticky; */
+  /* top: 90px; */
+  /* height: calc(100vh - 90px); */
+  /* overflow-y: auto; */
 }
 
 .sidebar {
   background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
+  /* backdrop-filter: blur(10px); */
+  /* border-radius: 15px; */
   margin: 1rem;
 }
 
@@ -337,7 +340,7 @@ footer .fs-4:hover {
 .product-card {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-  border-radius: 15px;
+  border-radius: 4px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
@@ -384,7 +387,8 @@ footer .fs-4:hover {
   opacity: 1;
 }
 
-.btn-quick-view, .btn-wishlist {
+.btn-quick-view,
+.btn-wishlist {
   background: white;
   color: #28a745;
   width: 40px;
@@ -396,7 +400,8 @@ footer .fs-4:hover {
   transition: all 0.3s ease;
 }
 
-.btn-quick-view:hover, .btn-wishlist:hover {
+.btn-quick-view:hover,
+.btn-wishlist:hover {
   background: #28a745;
   color: white;
 }
@@ -415,7 +420,7 @@ footer .fs-4:hover {
 }
 
 .product-title {
-  color: white;
+  /* color: white; */
   margin-bottom: 0.5rem;
   font-size: 1.1rem;
 }
@@ -432,7 +437,7 @@ footer .fs-4:hover {
 }
 
 .current-price {
-  color: #28a745;
+  color: var(--primary-clr);
   font-size: 1.2rem;
   font-weight: bold;
 }
@@ -445,7 +450,6 @@ footer .fs-4:hover {
 }
 
 .btn-add-cart {
-  background: #28a745;
   color: white;
   border-radius: 50%;
   width: 40px;
@@ -457,7 +461,7 @@ footer .fs-4:hover {
 }
 
 .btn-add-cart:hover {
-  background: #218838;
+  background: var(--primary-drk);
   transform: scale(1.1);
 }
 
@@ -475,7 +479,7 @@ footer .fs-4:hover {
   .product-card {
     margin: 0 0.5rem;
   }
-  
+
   .products-header {
     flex-direction: column;
     gap: 1rem;
@@ -483,18 +487,12 @@ footer .fs-4:hover {
 }
 
 /* Sidebar Styles */
-.sidebar-container {
-  position: sticky;
-  top: 90px;
-  height: calc(100vh - 90px);
-  overflow-y: auto;
-}
 
 .sidebar {
   background: rgba(255, 255, 255, 0.95);
-  border-radius: 15px;
+  /* border-radius: 15px; */
   margin: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
 }
 
 .filter-title {
@@ -518,7 +516,9 @@ footer .fs-4:hover {
   padding-bottom: 0;
 }
 
-.category-checkbox, .rating-checkbox, .type-checkbox {
+.category-checkbox,
+.rating-checkbox,
+.type-checkbox {
   padding: 0.5rem;
   margin-bottom: 0.5rem;
   cursor: pointer;
@@ -526,7 +526,9 @@ footer .fs-4:hover {
   transition: all 0.3s ease;
 }
 
-.category-checkbox:hover, .rating-checkbox:hover, .type-checkbox:hover {
+.category-checkbox:hover,
+.rating-checkbox:hover,
+.type-checkbox:hover {
   background: rgba(40, 167, 69, 0.1);
   border-radius: 8px;
 }
@@ -539,22 +541,8 @@ footer .fs-4:hover {
   color: #666;
 }
 
-.btn-apply {
-  background: #28a745;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-}
-
-.btn-apply:hover {
-  background: #218838;
-}
-
 /* Product Card Updates */
 .product-title {
-  color: #000;
   font-weight: 600;
 }
 
@@ -592,7 +580,7 @@ footer .fs-4:hover {
     padding-bottom: 1rem;
     margin-bottom: 1rem;
   }
-  
+
   .filter-title {
     font-size: 1rem;
   }
@@ -606,12 +594,65 @@ footer .fs-4:hover {
 /* Google translate css E */
 
 
-.forgot-password-container{
+.forgot-password-container {
   max-width: 600px;
   margin: 100px auto;
   padding: 30px;
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease; /* Hover effect for the container */
+  transition: box-shadow 0.3s ease;
+  /* Hover effect for the container */
+}
+
+/* Admin Dashboard */
+.admin_logo{
+  max-width: 170px;
+  width: 100%;
+}
+.admin_logo img{
+  width: 100%;
+}
+
+.admin_sidebar{
+width: 300px;
+height: 100vh;
+background-color: #12131c;
+}
+.admin_sidebar .list-group a{
+  text-decoration: none;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  color: #fdffff;
+}
+
+.admin_sidebar .list-group a.active{
+  background-color: white;
+
+}
+
+.admin_sidebar .list-group a:hover , .admin_sidebar .list-group a.active{
+  color: var(--text-clr) !important;
+}
+.admin_sidebar .list-group a:hover i{
+  color: var(--text-clr);
+}
+
+.admin-logout a{
+  text-decoration: none;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+}
+
+.admin-logout a:hover{
+  display: block;
+  background-color: #fdffff;
+  color: var(--text-clr) !important;
+}
+
+.adminNavbar #userDropdown:hover ,.adminNavbar #userDropdown.show{
+  color: var(--text-clr);
 }

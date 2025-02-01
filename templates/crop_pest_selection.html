@@ -1,0 +1,141 @@
+{% extends "layout.html" %}
+{% block body %}
+<h3 class="txt-primary bg-clr py-3 mb-3" style="text-align: center; margin-top: 2rem; ">Crop Pest Detection</h3>
+<div class="container-fluid pb-5">
+    <div class="row">
+        <div class="col-12 text-center">
+            <p class="lead txt-primary">Select Your Crop for Precise Pest Identification</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center g-4">
+            {% for crop in crops %}
+            <div class="col-md-3 col-sm-6">
+                <div class="crop-card {% if crop.active %}crop-card-active{% else %}crop-card-inactive{% endif %}  overflow-hidden position-relative" {% if crop.active
+                    %}onclick="location.href='{{ url_for('pest') }}'" {% endif %}>
+                    <div class="crop-card-overlay"></div>
+                    <img src="{{ crop.image }}" class="img-fluid crop-image" alt="{{ crop.name }} Crop">
+                    <div class="crop-card-content">
+                        <h3 class="crop-name">{{ crop.name }}</h3>
+                        <p class="crop-description">{{ crop.description }}</p>
+                        {% if crop.active %}
+                        <span class="badge bg-success">Detect Pests</span>
+                        {% else %}
+                        <span class="badge bg-secondary">Coming Soon</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<style>
+    .pest-selection-bg {
+        background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+        min-height: 100vh;
+        padding-bottom: 50px;
+    }
+
+    .crop-title {
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        animation: fadeInDown 1s ease;
+    }
+
+    .crop-card {
+        transition: all 0.3s ease;
+        cursor: pointer;
+        height: 350px;
+        border-radius: 4px;
+        /* perspective: 1000px; */
+    }
+
+    .crop-card:hover{
+        box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    }
+    .crop-card-active {
+        /* transform: scale(1.05); */
+    }
+    
+    .crop-card-active:hover {
+        /* transform: scale(1.08) rotate(2deg); */
+    }
+
+    .crop-card-inactive {
+        filter: grayscale(80%);
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
+
+    .crop-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+    }
+
+    .crop-card-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.7));
+        z-index: 2;
+    }
+
+    .crop-card-content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 20px;
+        color: white;
+        z-index: 3;
+        text-align: center;
+    }
+
+    .crop-name {
+        font-weight: 700;
+        margin-bottom: 10px;
+        text-shadow: 1px 1px 2px black;
+    }
+
+    .crop-description {
+        font-size: 0.9rem;
+        opacity: 0.8;
+    }
+
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+
+<script>
+    // document.addEventListener('DOMContentLoaded', function () {
+    //     const cropCards = document.querySelectorAll('.crop-card-active');
+    //     cropCards.forEach(card => {
+    //         card.addEventListener('mouseenter', function () {
+    //             this.style.transform = 'scale(1.08) rotate(2deg)';
+    //         });
+    //         card.addEventListener('mouseleave', function () {
+    //             this.style.transform = 'scale(1.05)';
+    //         });
+    //     });
+    // });
+</script>
+{% endblock %}

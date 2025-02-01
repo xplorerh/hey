@@ -1,35 +1,108 @@
-{% extends 'layout.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-{% block body %}
-<div class="container-fluid py-4">
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Agri E-State is an innovative platform for sustainable farming, combining IoT, AI, and robotics for smarter agriculture.">
+  <meta name="keywords" content="Agri E-State, smart farming, sustainable agriculture, IoT, AI, robotics, technology for farming">
+  <meta name="author" content="Team 0D">
+
+  <!-- Open Graph Meta Tags for Social Media Sharing -->
+  <meta property="og:title" content="Agri E-State">
+  <meta property="og:description" content="Empowering farmers through cutting-edge technology for smarter, more sustainable farming.">
+  <meta property="og:image" content="{{ url_for('static', filename='logo.png') }}">
+  <meta property="og:url" content="{{ url_for('Home', _external=True) }}">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:title" content="Agri E-State">
+  <meta name="twitter:description" content="Innovative platform combining AI, IoT, and robotics for sustainable farming.">
+  <meta name="twitter:image" content="{{ url_for('static', filename='logo.png') }}">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Google font S -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <!-- Google font E -->
+
+  <title>
+    {% block title %} 
+      {{title}} - Agri E-State
+    {% endblock title %}
+  </title>
+
+  <link rel="stylesheet" href="/static/css/style2.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+
+<body>
+
+<div class="container-fluid">
   <div class="row">
-    <div class="col-lg-3 col-md-4">
-      <div class="card mb-4">
-        <div class="card-header bg-primary text-white">
-          Admin Dashboard
-        </div>
-        <div class="list-group list-group-flush">
-          <a href="#users" class="list-group-item list-group-item-action active" data-bs-toggle="tab">
-            Registered Users
+    <div class="admin_sidebar px-3">
+      <div class="admin_logo mt-4">
+        <img src="{{ url_for('static', filename='argroLogo.png') }}"  alt="Agri E-State Logo">
+      </div>
+      <div class="mb-4">
+        <div class="list-group mt-4">
+          <a href="#users" class="list-group-item-action active" data-bs-toggle="tab">
+            <i class="bi bi-people-fill"></i> Registered Users
           </a>
-          <a href="#farmers" class="list-group-item list-group-item-action" data-bs-toggle="tab">
+          <a href="#farmers" class="list-group-item-action" data-bs-toggle="tab">
+            <i class="bi bi-people-fill"></i>
             Farmers
           </a>
-          <a href="#products" class="list-group-item list-group-item-action" data-bs-toggle="tab">
+          <a href="#products" class="list-group-item-action" data-bs-toggle="tab">
+            <i class="bi bi-bar-chart"></i>
             Marketplace Products
           </a>
-       <a class="list-group-item list-group-item-action" data-bs-toggle="tab {% if request.endpoint == 'warehouses' %}active{% endif %}" href="{{ url_for('warehouses') }}">Warehouses</a>
-      <a class="list-group-item list-group-item-action" data-bs-toggle="tab {% if request.endpoint == 'item_tracking' %}active{% endif %}" href="{{ url_for('item_tracking') }}">Item Tracking</a></li>
-
-
-          <a href="#pest-reports" class="list-group-item list-group-item-action" data-bs-toggle="tab">
+          <a class="list-group-item-action" data-bs-toggle="tab {% if request.endpoint == 'warehouses' %}active{% endif %}" href="{{ url_for('warehouses') }}">
+            <i class="bi bi-house"></i>
+            Warehouses
+          </a>
+          <a class="list-group-item-action" data-bs-toggle="tab {% if request.endpoint == 'item_tracking' %}active{% endif %}" href="{{ url_for('item_tracking') }}">
+            <i class="bi bi-geo-fill"></i>
+            Item Tracking</a></li>
+          <a href="#pest-reports" class="list-group-item-action" data-bs-toggle="tab">
+            <i class="bi bi-bug"></i>
             Pest Detection Reports
           </a>
         </div>
       </div>
+      <!-- Logout -->
+      <div class="admin-logout w-100 d-flex align-items-center" style="bottom: 20px;">
+        <a class="dropdown-item" href="{{ url_for('logout') }}">
+          <i class="bi bi-box-arrow-left"></i>
+          Logout</a>
+      </div>
     </div>
 
     <div class="col-lg-9 col-md-8">
+      <div class="adminNavbar pt-4">
+        <ul class="navbar-nav signup d-flex align-items-end ms-auto">
+              <!-- User Avatar Dropdown -->
+              <li class="nav-item dropdown">
+                <a class="txt-clr nav-link dropdown-toggle d-flex gap-2 align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="{{ url_for('static', filename='user-avatar.png') }}" width="35" height="35" class="rounded-circle">
+                  Admin
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                  <li><a class="dropdown-item" href="{{ url_for(session['user_type'] + '_dashboard') }}">My Dashboard</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('logout') }}">Logout</a></li>
+                </ul>
+              </li>
+          </ul>
+      </div>
       <div class="tab-content">
         <!-- Registered Users Tab -->
         <div class="tab-pane fade show active" id="users">
@@ -71,35 +144,41 @@
 
         <!-- Farmers Tab -->
         <div class="tab-pane fade" id="farmers">
+          
+          {% if farmers %}
           <div class="card">
             <div class="card-header">Farmer Details</div>
-            <div class="table-responsive">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th>Farm Name</th>
-                    <th>Location</th>
-                    <th>Total Crops</th>
-                    <th>Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>Farm Name</th>
+                          <th>Location</th>
+                          <th>Total Crops</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
                   {% for farmer in farmers %}
-                  <tr>
-                    <td>{{ farmer.farm_name or 'N/A' }}</td>
-                    <td>{{ farmer.location or 'N/A' }}</td>
-                    <td>{{ farmer.inventories|length }}</td>
-                    <td>
-                      <div class="btn-group">
-                        <button class="btn btn-sm btn-primary">View Inventory</button>
-                      </div>
-                    </td>
-                  </tr>
-                  {% endfor %}
+                    <tr>
+                      <td>{{ farmer.farm_name or 'N/A' }}</td>
+                      <td>{{ farmer.location or 'N/A' }}</td>
+                      <td>{{ farmer.inventories | length }}</td>
+                      <td>
+                        <div class="btn-group">
+                          <button class="btn btn-sm btn-primary">View Inventory</button>
+                        </div>
+                      </td>
+                    </tr>
+                  {% endfor %}            
                 </tbody>
               </table>
             </div>
           </div>
+                {% else %}
+                  <h4 class="txt-clr text-center">No Farmers!</h4>
+                {% endif %}
+
         </div>
 
         <!-- Marketplace Products Tab -->
@@ -174,5 +253,13 @@
       </div>
     </div>
   </div>
-</div>
-{% endblock body %}
+</div>  <!-- Google Translate -->
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+<<<<<<< HEAD
+</html>
+=======
+</html>
+>>>>>>> c3e12832c8c3568b2e69303e3c5487409467d7e0
