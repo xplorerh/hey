@@ -71,13 +71,15 @@
       <div class="products-header d-flex justify-content-between align-items-center mb-4 p-3">
         <h3 class="mb-0">Available Products</h3>
         <div class="sort-options">
-          <select class="form-select">
-            <option>Sort by: Featured</option>
-            <option>Price: Low to High</option>
-            <option>Price: High to Low</option>
-            <option>Rating: Highest</option>
-            <option>Latest</option>
-          </select>
+          <form method="GET" action="{{ url_for('marketplace') }}">
+            <select class="form-select" name="sort" onchange="this.form.submit()">
+              <option {% if request.args.get('sort') == 'featured' %}selected{% endif %}>Sort by: Featured</option>
+              <option {% if request.args.get('sort') == 'Price: Low to High' %}selected{% endif %}>Price: Low to High</option>
+              <option {% if request.args.get('sort') == 'Price: High to Low' %}selected{% endif %}>Price: High to Low</option>
+              <option {% if request.args.get('sort') == 'Rating: Highest' %}selected{% endif %}>Rating: Highest</option>
+              <option {% if request.args.get('sort') == 'Latest' %}selected{% endif %}>Latest</option>
+            </select>
+          </form>
         </div>
       </div>
 
@@ -141,4 +143,5 @@
     </div>
   </div>
 </div>
+
 {% endblock body %}

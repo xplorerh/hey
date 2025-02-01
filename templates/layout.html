@@ -71,6 +71,7 @@
             <li class="nav-item">
               <a class="nav-link {% if request.endpoint == 'marketplace' %}active{% endif %}" href="{{ url_for('marketplace') }}">Marketplace</a>
             </li>
+
             <li class="nav-item">
               <a class="nav-link {% if request.endpoint == 'research_data' %}active{% endif %}" href="{{ url_for('research_data') }}">Research Data</a>
             </li>
@@ -81,7 +82,7 @@
               <a class="nav-link {% if request.endpoint == 'contact' %}active{% endif %}" href="{{ url_for('contact') }}">Contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link {% if request.endpoint == 'pest' %}active{% endif %}" href="{{ url_for('pest') }}">Pest Portal</a>
+              <a class="nav-link {% if request.endpoint == 'pest' %}active{% endif %}" href="{{ url_for('crop_pest_selection') }}">Pest Portal</a>
             </li>
           </ul>
           <!-- Login and Register Buttons (Spacing Added) -->
@@ -138,6 +139,7 @@
                 <li><a href="{{ url_for('Home') }}" class="text-light text-decoration-none">Home</a></li>
                 <li><a href="{{ url_for('features') }}" class="text-light text-decoration-none">Features</a></li>
                 <li><a href="{{ url_for('marketplace') }}" class="text-light text-decoration-none">Marketplace</a></li>
+
               </ul>
             </div>
             <div class="col-6">
@@ -169,7 +171,7 @@
       </div>
       <hr class="bg-light">
       <div class="text-center small mt-4">
-        &copy; 2025 Agri E-State. All Rights Reserved. | Designed with ❤️ by Team 0D
+        &copy; 2025 Agri E-State. All Rights Reserved. | Designed with ❤️ by Team OBSIDIAN
       </div>
     </div>
   </footer>

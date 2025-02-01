@@ -2,11 +2,11 @@
 {% block body %}
 <div class="container mt-5 pt-5">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card shadow-lg border-0 rounded-lg">
                 <div class="card-header bg-success text-white text-center py-4">
-                    <h2 class="mb-0">Pest Detection Portal</h2>
-                    <p class="mb-0">Upload an image of a jute pest for instant identification</p>
+                    <h2 class="mb-0">Jute Pest Detection & Remedy Portal</h2>
+                    <p class="mb-0">Identify pests and get instant treatment recommendations</p>
                 </div>
                 <div class="card-body p-4">
                     <!-- Upload Form -->
@@ -14,7 +14,7 @@
                         <div class="text-center mb-4">
                             <div class="upload-area p-4 border-2 border-dashed border-gray-300 rounded-lg">
                                 <i class="bi bi-cloud-upload fs-1 text-success"></i>
-                                <p class="mt-2">Drag and drop your image here or</p>
+                                <p class="mt-2">Drag and drop your jute pest image here or</p>
                                 <div class="position-relative">
                                     <input type="file" class="form-control" id="pestImage" name="pestImage" accept="image/*" required>
                                 </div>
@@ -22,37 +22,57 @@
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-success btn-lg px-5">
-                                <i class="bi bi-search me-2"></i>Identify Pest
+                                <i class="bi bi-search me-2"></i>Identify & Treat
                             </button>
                         </div>
                     </form>
 
                     <!-- Results Section -->
                     {% if prediction %}
-                    <div class="result-section mt-4">
+                    <div class="result-section mt-4 animated fadeIn">
                         <div class="row">
                             <div class="col-md-6">
-                                <img src="static/{{ image_path }}" 
-                                     class="img-fluid rounded shadow" alt="Uploaded pest image">
+                                <div class="card h-100 shadow-sm">
+                                    <div class="card-header bg-primary text-white">
+                                        <h4 class="mb-0">Pest Image</h4>
+                                    </div>
+                                    <div class="card-body p-0">
+                                        <img src="static/{{ image_path }}" 
+                                             class="img-fluid rounded-bottom" alt="Uploaded pest image">
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="card h-100">
+                                <div class="card h-100 shadow-sm">
+                                    <div class="card-header bg-success text-white">
+                                        <h4 class="mb-0">Pest Detection Results</h4>
+                                    </div>
                                     <div class="card-body">
-                                        <h3 class="card-title text-success">Detection Results</h3>
-                                        <div class="mt-3">
-                                            <p class="mb-2"><strong>Pest Type:</strong></p>
-                                            <h4 class="text-primary">{{ prediction.pest_type }}</h4>
-                                            <div class="progress mt-2">
-                                                <div class="progress-bar bg-success" 
-                                                     role="progressbar" 
-                                                     style="width: {{ prediction.confidence }}%" 
-                                                     aria-valuenow="{{ prediction.confidence }}" 
-                                                     aria-valuemin="0" 
-                                                     aria-valuemax="100">
-                                                    {{ "%.2f"|format(prediction.confidence) }}%
+                                        <div class="pest-details mb-3">
+                                            <h5 class="text-primary mb-3">
+                                                <i class="bi bi-bug-fill me-2"></i>{{ prediction.pest_type }}
+                                            </h5>
+                                            <div class="confidence-meter">
+                                                <div class="progress" style="height: 25px;">
+                                                    <div class="progress-bar bg-success" 
+                                                         role="progressbar" 
+                                                         style="width: {{ prediction.confidence }}%" 
+                                                         aria-valuenow="{{ prediction.confidence }}" 
+                                                         aria-valuemin="0" 
+                                                         aria-valuemax="100">
+                                                        {{ "%.2f"|format(prediction.confidence) }}% Confidence
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <p class="text-muted mt-2">Confidence Score</p>
+                                        </div>
+
+                                        <div class="remedy-section">
+                                            <h5 class="text-success mb-3">
+                                                <i class="bi bi-shield-check me-2"></i>Recommended Treatment
+                                            </h5>
+                                            <div class="alert alert-info remedy-box" role="alert">
+                                                <p class="mb-0">{{ remedy }}</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -83,9 +103,24 @@
     animation: fadeIn 0.5s ease-in;
 }
 
+.remedy-box {
+    background-color: #e6f3ff;
+    border-left: 4px solid #007bff;
+    font-style: italic;
+}
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+.animated {
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+
+.fadeIn {
+    animation-name: fadeIn;
 }
 </style>
 {% endblock %}

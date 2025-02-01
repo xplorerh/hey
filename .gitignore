@@ -1,4 +1,5 @@
 test.html
 __pycache__/
 /venv/
- 
+env/
+data.db
