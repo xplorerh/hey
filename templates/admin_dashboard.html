@@ -18,6 +18,10 @@
           <a href="#products" class="list-group-item list-group-item-action" data-bs-toggle="tab">
             Marketplace Products
           </a>
+       <a class="list-group-item list-group-item-action" data-bs-toggle="tab {% if request.endpoint == 'warehouses' %}active{% endif %}" href="{{ url_for('warehouses') }}">Warehouses</a>
+      <a class="list-group-item list-group-item-action" data-bs-toggle="tab {% if request.endpoint == 'item_tracking' %}active{% endif %}" href="{{ url_for('item_tracking') }}">Item Tracking</a></li>
+
+
           <a href="#pest-reports" class="list-group-item list-group-item-action" data-bs-toggle="tab">
             Pest Detection Reports
           </a>

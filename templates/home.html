@@ -12,23 +12,25 @@
 </section>
 
 <!-- About Software Section -->
-<section class="about-software d-flex align-items-center pad-block-sec" style="">
+<section class="about-software d-flex align-items-center pad-block-sec">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-12 col-md-6 mx-auto">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-12 col-md-6">
                 <h2 class="fw-bold txt-primary mb-4">About Us</h2>
                 <p class="txt-clr">
-                    Agri E-State is a cutting-edge platform designed to revolutionize the agricultural sector. Our comprehensive software empowers farmers with real-time insights, enhances research opportunities, and bridges the gap between producers and consumers.
+                    AgriEstate is a revolutionary platform designed to empower farmers and landowners by optimizing agricultural productivity. We provide a seamless ecosystem where:
                 </p>
                 <ul class="list-unstyled">
-                    <li class="txt-clr"><span class="txt-primary">*</span> Real-time monitoring of crops and soil health. <span class="txt-primary">*</span></li>
-                    <li class="txt-clr"><span class="txt-primary">*</span> Smart IoT-enabled devices for precision farming. <span class="txt-primary">*</span></li>
-                    <li class="txt-clr"><span class="txt-primary">*</span> Direct farmer-to-consumer marketplace integration. <span class="txt-primary">*</span></li>
+                    <li class="txt-clr"> <strong> Land Leasing</strong> – Farmers and landowners can lease their land for efficient agricultural use.</li>
+                    <li class="txt-clr"><strong>Smart Farming Services</strong>– Utilize our advanced pest detection system, expert consultation, and access to modern machinery for better yield.</li>
+                    <li class="txt-clr"><strong>Marketplace for Farmers</strong> – Sell fresh produce directly through our platform, connecting with buyers and distributors.</li>
+                    <li class="txt-clr"><strong>End-to-End Crop Management</strong> – We cultivate crops and fruits, manage inventory efficiently, and ensure timely distribution.</li>
+                    <li class="txt-clr"><strong>Optimized Logistics</strong> – Our warehouse management system calculates stock levels and determines the shortest distribution routes for cost-effective delivery.</li>
                 </ul>
                 <a href="{{ url_for('features') }}" class="btn mt-3 cmn-btn d-block mt-4" style="max-width: 150px;" >Learn More</a>
             </div>
             <div class="col-lg-4 text-center">
-                <img src="{{ url_for('static', filename='about_software.png') }}" alt="Agri E-State Software" class="img-fluid">
+                <img src="{{ url_for('static', filename='about_software.png') }}" style="border-radius: 4px;" alt="Agri E-State Software" class="img-fluid">
             </div>
         </div>
     </div>
@@ -64,94 +66,175 @@
     </div>
 </section> -->
 
-<section class="special-units d-flex align-items-center bg-clr" style="min-height: 100vh;">
+<section class="special-units d-flex align-items-center bg-clr pad-block-sec">
     <div class="container">
         <h2 class="text-center fw-bold mb-5 txt-primary">Our Features</h2>
         <div class="row g-4 justify-content-center">
             <div class="col-lg-4">
                 <div class="card border-0 shadow-sm h-100 text-center p-4">
-                    <!-- <i class="bi bi-seedling "></i> -->
-                    <i class="bi bi-flower3 text-success fs-1 mb-3"></i>
-                    <h5 class="fw-bold">MarketPlace</h5>
-                    <p>Precision planting with automated systems for optimal growth.</p>
+                    <i class="bi bi-shop text-success fs-1 mb-3"></i>
+                    <h5 class="fw-bold">Marketplace</h5>
+                    <p>Farmers can sell their produce directly to buyers, eliminating middlemen and ensuring better profits.</p>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="card border-0 shadow-sm h-100 text-center p-4">
-                    <i class="bi bi-droplet-half text-success fs-1 mb-3"></i>
+                    <i class="bi bi-view-stacked text-success fs-1 mb-3"></i>
                     <h5 class="fw-bold">Inventory Management System</h5>
-                    <p>Water management using advanced IoT devices.</p>
+                    <p>Track and manage stock levels of crops, fertilizers, and equipment with real-time monitoring.</p>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="card border-0 shadow-sm h-100 text-center p-4">
-                    <i class="bi bi-bar-chart-line text-success fs-1 mb-3"></i>
-                    <h5 class="fw-bold">Land lease</h5>
-                    <p>Real-time data on crop and soil health for informed decisions.</p>
+                    <i class="bi bi-shield-shaded text-success fs-1 mb-3"></i>
+                    <h5 class="fw-bold">Land Lease</h5>
+                    <p>Landowners can lease their land to farmers, maximizing agricultural use and income potential.</p>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="card border-0 shadow-sm h-100 text-center p-4">
-                    <i class="bi bi-bar-chart-line text-success fs-1 mb-3"></i>
+                    <i class="bi bi-truck text-success fs-1 mb-3"></i>
                     <h5 class="fw-bold">Smart Delivery</h5>
-                    <p>Real-time data on crop and soil health for informed decisions.</p>
+                    <p>Optimized logistics to ensure timely transportation of produce from farms to distributors.</p>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="card border-0 shadow-sm h-100 text-center p-4">
-                    <i class="bi bi-bar-chart-line text-success fs-1 mb-3"></i>
+                    <i class="bi bi-bug text-success fs-1 mb-3"></i>
                     <h5 class="fw-bold">Pest Detection</h5>
-                    <p>Real-time data on crop and soil health for informed decisions.</p>
+                    <p>AI-powered pest monitoring helps farmers detect and control infestations before they spread.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm h-100 text-center p-4">
+                    <i class="bi bi-suitcase-lg-fill text-success fs-1 mb-3"></i>
+                    <h5 class="fw-bold">Professional Consulting</h5>
+                    <p>Expert guidance on modern farming techniques, crop selection, and sustainable agricultural practices.</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+<!-- how it Works S -->
+
+<section class="special-units d-flex align-items-center pad-block-sec">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-5 txt-primary">How it works</h2>
+        <div class="row g-4 justify-content-center">
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm h-100 text-center p-4">
+                    <div class="step">1</div>
+                    <h5 class="fw-bold txt-primary">Register as Farmer</h5>
+                    <p>Farmers or landowners can sign up to use the platform and access a variety of services designed to boost productivity.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm h-100 text-center p-4">
+                    <div class="step">2</div>
+                    <h5 class="fw-bold txt-primary">Land Lease or Access Services</h5>
+                    <p>Landowners can lease their land to farmers, or farmers can access services like pest detection, machinery rental, and consultation.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm h-100 text-center p-4">
+                    <div class="step">3</div>
+                    <h5 class="fw-bold txt-primary">Smart Farming Tools</h5>
+                    <p>Farmers can utilize advanced IoT devices for water management, pest detection, and crop monitoring to optimize growth conditions.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm h-100 text-center p-4">
+                    <div class="step">4</div>
+                    <h5 class="fw-bold txt-primary">Marketplace Access</h5>
+                    <p>Farmers can list their produce directly on the platform, connecting with buyers and maximizing their profits.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm h-100 text-center p-4">
+                    <div class="step">5</div>
+                    <h5 class="fw-bold txt-primary">Delivery & Logistics</h5>
+                    <p>Once produce is ready, the platform ensures efficient and timely delivery to distributors using optimized routes and tracking systems.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm h-100 text-center p-4">
+                    <div class="step">6</div>
+                    <h5 class="fw-bold txt-primary">Professional Consulting</h5>
+                    <p>Farmers receive expert advice on crop selection, pest control, and sustainable farming practices to improve yield and efficiency.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
+<!-- how it Works E -->
+
+
 <!-- Student Zone Section -->
-<section class="student-zone d-flex align-items-center" style="min-height: 100vh;">
+<section class="student-zone d-flex align-items-center pad-block-sec bg-clr">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6 text-center">
-                <img src="{{ url_for('static', filename='student_zone.png') }}" alt="Student Zone" class="img-fluid">
-            </div>
+        <div class="row align-items-center justify-content-between">
+
             <div class="col-lg-6">
-                <h2 class="fw-bold txt-primary">Student Zone</h2>
-                <p class="text-muted">
+                <h2 class="fw-bold txt-primary  mb-4">Students zone</h2>
+                <p class="txt-clr">
                     A dedicated space for students to access valuable resources, research data, and expert guidance to enhance their academic journey in the agricultural domain.
                 </p>
-                <ul>
-                    <li>Access to the latest research papers.</li>
-                    <li>Opportunities to collaborate with experts.</li>
-                    <li>Hands-on projects and case studies.</li>
+                <ul class="list-unstyled">
+                    <li class="txt-clr "><span class="txt-primary">*</span> Access to the latest research papers. <span class="txt-primary">*</span></li>
+                    <li class="txt-clr "><span class="txt-primary">*</span> Opportunities to collaborate with experts. <span class="txt-primary">*</span></li>
+                    <li class="txt-clr "><span class="txt-primary">*</span> Hands-on projects and case studies. <span class="txt-primary">*</span></li>
                 </ul>
-                <a href="{{ url_for('student_zone') }}" class="btn btn-primary mt-3">Explore Student Zone</a>
+                <a href="{{ url_for('student_zone') }}" class="btn cmn-btn  d-block mt-4" style="width: 200px;">Explore Student Zone</a>
+            </div>
+            <div class="col-lg-4 text-center">
+                <img src="{{ url_for('static', filename='student_zone.png') }}" alt="Student Zone" style="max-width: 350px;width: 100%;" class="img-fluid">
             </div>
         </div>
     </div>
 </section>
 
 <!-- Data & Research Development Section -->
-<section class="research-development d-flex align-items-center txt-clr bg-clr" style="min-height: 100vh;">
+<section class="research-development d-flex align-items-center txt-clr pad-block-sec">
     <div class="container">
-        <div class="row align-items-center">
+        <div class="row align-items-center justify-content-between">
             <div class="col-lg-6">
-                <h2 class="fw-bold">Data & Research Development</h2>
-                <p class="mb-4">
+                <h2 class="fw-bold txt-primary mb-4">Data & Research Development</h2>
+                <p class="mb-4 txt-clr">
                     Our platform collects and analyzes agricultural data to support research and development. Empowering scientists and researchers to innovate and create solutions for a sustainable future.
                 </p>
-                <ul>
-                    <li>Real-time data collection from fields.</li>
-                    <li>Detailed insights into crop health, soil, and climate.</li>
-                    <li>Tools for advanced agricultural research.</li>
+                <ul class="list-unstyled">
+                    <li><span class="txt-primary">*</span> Real-time data collection from fields. <span class="txt-primary">*</span></li>
+                    <li><span class="txt-primary">*</span> Detailed insights into crop health, soil, and climate. <span class="txt-primary">*</span></li>
+                    <li><span class="txt-primary">*</span> Tools for advanced agricultural research. <span class="txt-primary">*</span></li>
                 </ul>
-                <a href="{{ url_for('research_data') }}" class="btn btn-success mt-3">Learn More</a>
+                <a href="{{ url_for('research_data') }}" class="btn cmn-btn mt-4 d-block" style="width: 150px;">Learn More</a>
             </div>
-            <div class="col-lg-6 text-center">
-                <img src="{{ url_for('static', filename='research_data.png') }}" alt="Research and Development" class="img-fluid">
+            <div class="col-lg-5 text-center">
+                <img style="border-radius: 4px;" src="{{ url_for('static', filename='research.jpg') }}" alt="Research and Development" class="img-fluid">
             </div>
         </div>
     </div>
 </section>
 
+<!-- Contact us S -->
+ <section class="pad-block-sec container bg-clr">
+    <div class="row">
+        <div class="col-4" style="border-right: 1px solid #555;">
+            <h2 class="mb-4 txt-primary">Register as Farmer</h2>
+            <a href="/register" class="btn cmn-btn">Register</a>
+        </div>
+        <div class="col-4 ps-4" style="border-right: 1px solid #555;">
+            <h2 class="mb-4 txt-primary">Buy Products</h2>
+            <a href="/register" class="btn cmn-btn">Register as user</a>
+        </div>
+        <div class="col-4 ps-4">
+            <h2 class="mb-4 txt-primary">Contact Us</h2>
+            <a href="/contact" class="btn cmn-btn">Contact us</a>
+        </div>
+    </div>
+ </section>
+<!-- Contact us E -->
 {% endblock body %}

@@ -5,41 +5,42 @@ student_zone - Agri E-State
 {% endblock title %}
 
 {% block body %}
- <h1 style="text-align: center; margin-top: 2rem; color:rgb(61, 203, 29)"> Innovating Agriculture: A Hub for Agri-Tech Students</h1>
-<div class="prasanna col-lg-12 d-flex" style="height: 90vh; margin-top: 5rem; margin-left:2.5rem; display: flex; gap: 2rem;">
+<h1 style="text-align: center; margin-top: 2rem; color:rgb(61, 203, 29)"> Innovating Agriculture: A Hub for Agri-Tech Students</h1>
+<div class="prasanna container-fluid d-flex flex-wrap justify-content-center" style="margin-top: 5rem; margin-bottom:5rem; gap: 2rem;">
     
-  <div class="card" style="width: 20rem; height: 30rem;">
-    <img class="card-img-top" style="height: 200px;" src="{{ url_for('static', filename='seasonal farming.jpg') }}" alt="Card image cap">
-    <div class="card-body">
+  <div class="card col-sm-12 col-md-6 col-lg-3" style="width: 18rem;">
+    <img class="card-img-top" style="height: 200px; object-fit: cover;" src="{{ url_for('static', filename='seasonal farming.jpg') }}" alt="Card image cap">
+    <div class="card-body d-flex flex-column">
       <h5 class="card-title">Learning about growing seasonal vegetables</h5>
       <p class="card-text">Create areas for planting, caring for, and harvesting seasonal crops. Teach students about planting techniques, crop rotation, irrigation, and pest control through hands-on experience.</p>
-      <a href="#" class="btn btn-primary">Know More</a>
+      <a href="#" class="btn btn-primary mt-auto">Know More</a>
     </div>
   </div>
-  <div class="card" style="width: 20rem; height: 30rem;">
-    <img class="card-img-top" style="height: 200px;" src="{{ url_for('static', filename='demonstrations.png') }}" alt="Card image cap">
-    <div class="card-body">
+
+  <div class="card col-sm-12 col-md-6 col-lg-3" style="width: 18rem;">
+    <img class="card-img-top" style="height: 200px; object-fit: cover;" src="{{ url_for('static', filename='demonstrations.png') }}" alt="Card image cap">
+    <div class="card-body d-flex flex-column">
       <h5 class="card-title">Workshops and demonstration</h5>
       <p class="card-text">Host workshops on planting, irrigation, crop rotation, and pest management. Provide live demos on harvesting, soil care, and seasonal crop care techniques. Demonstrations on sustainable practices, and innovative farming methods.</p>
-      <a href="#" class="btn btn-primary">Know More</a>
+      <a href="#" class="btn btn-primary mt-auto">Know More</a>
     </div>
   </div>
-  <div class="card" style="width: 20rem; height: 30rem;">
-    <img class="card-img-top" style="height: 200px;" src="{{ url_for('static', filename='greenhouse.jpg') }}" alt="Card image cap">
-    <div class="card-body">
+
+  <div class="card col-sm-12 col-md-6 col-lg-3" style="width: 18rem;">
+    <img class="card-img-top" style="height: 200px; object-fit: cover;" src="{{ url_for('static', filename='greenhouse.jpg') }}" alt="Card image cap">
+    <div class="card-body d-flex flex-column">
       <h5 class="card-title">Greenhouses</h5>
-      <p class="card-text">
-        Set up greenhouses for growing seasonal crops in controlled environments, to study plant growth, climate control.Use the greenhouses for extended growing seasons, pest control, and sustainable farming practices in a protected space.</p>
-      <a href="#" class="btn btn-primary">Know More</a>
+      <p class="card-text">Set up greenhouses for growing seasonal crops in controlled environments, to study plant growth, climate control. Use the greenhouses for extended growing seasons, pest control, and sustainable farming practices in a protected space.</p>
+      <a href="#" class="btn btn-primary mt-auto">Know More</a>
     </div>
   </div>
-  <div class="card" style="width: 20rem; height: 30rem;">
-    <img class="card-img-top" style="height: 200px;" src="{{ url_for('static', filename='organic.jpeg') }}" alt="Card image cap">
-    <div class="card-body">
+
+  <div class="card col-sm-12 col-md-6 col-lg-3" style="width: 18rem;">
+    <img class="card-img-top" style="height: 200px; object-fit: cover;" src="{{ url_for('static', filename='organic.jpeg') }}" alt="Card image cap">
+    <div class="card-body d-flex flex-column">
       <h5 class="card-title">Organic Farming</h5>
-      <p class="card-text">
-        Student competitions or sustainability challenges, such as creating the best organic garden or reducing food waste, can foster friendly competition and hands-on learning.</p>
-      <a href="#" class="btn btn-primary">Know More</a>
+      <p class="card-text">Student competitions or sustainability challenges, such as creating the best organic garden or reducing food waste, can foster friendly competition and hands-on learning.</p>
+      <a href="#" class="btn btn-primary mt-auto">Know More</a>
     </div>
   </div>
 </div>
